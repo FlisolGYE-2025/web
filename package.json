@@ -1,0 +1,22 @@
+{
+  "name": "flisolguayaquil",
+  "version": "1.0.0",
+  "description": "Sitio web oficial para el Festival Latinoamericano de Instalación de Software Libre en Guayaquil",
+  "main": "gulpfile.js",
+  "scripts": {
+    "dev": "gulp dev",
+    "build": "gulp build"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "browser-sync": "^3.0.4",
+    "gulp": "^5.0.0",
+    "gulp-file-include": "^2.3.0",
+    "gulp-prettier": "^6.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "prettier": "^3.5.3",
+    "sass": "^1.62.1"
+  },
+  "license": "MIT"
+}
