@@ -54,7 +54,9 @@
   <body>
     <!-- Navbar -->
     <header>
-      <nav class="navbar navbar-expand-lg w-100 z-999 position-fixed top-0">
+      <nav
+        class="navbar navbar-expand-lg w-100 z-999 position-fixed top-0 bg-primary"
+      >
         <div class="container-fluid px-md-8 px-4">
           <a
             class="navbar-brand d-flex main-logo align-items-center"
@@ -325,34 +327,56 @@
                 <ul class="carouselTicker__list">
                   <li class="carouselTicker__item">
                     <img
-                      class="rounded-4"
-                      src="assets/images/logo-flisol-azul-2.png"
-                      alt="FLISol Guayaquil"
+                      class="object-fit-contain"
+                      src="assets/images/comunidades/eth_ecuador.webp"
+                      alt="Logo ETH Ecuador"
                       width="200"
+                      height="200"
                     />
                   </li>
                   <li class="carouselTicker__item">
                     <img
-                      class="rounded-4"
-                      src="assets/images/logo-flisol-azul-2.png"
-                      alt="FLISol Guayaquil"
+                      class="object-fit-contain p-4"
+                      src="assets/images/comunidades/funpython_logo.webp"
+                      alt="Logo FunPython"
                       width="200"
+                      height="200"
                     />
                   </li>
                   <li class="carouselTicker__item">
                     <img
-                      class="rounded-4"
-                      src="assets/images/logo-flisol-azul-2.png"
-                      alt="FLISol Guayaquil"
+                      class="object-fit-contain"
+                      src="assets/images/comunidades/herux.webp"
+                      alt="Logo HerUX"
                       width="200"
+                      height="200"
                     />
                   </li>
                   <li class="carouselTicker__item">
                     <img
-                      class="rounded-4"
-                      src="assets/images/logo-flisol-azul-2.png"
-                      alt="FLISol Guayaquil"
+                      class="object-fit-contain"
+                      src="assets/images/comunidades/kokoa_logo.webp"
+                      alt="Logo Kokoa"
                       width="200"
+                      height="200"
+                    />
+                  </li>
+                  <li class="carouselTicker__item">
+                    <img
+                      class="object-fit-contain"
+                      src="assets/images/comunidades/condorcoders.webp"
+                      alt="Logo CondorCoders"
+                      width="200"
+                      height="200"
+                    />
+                  </li>
+                  <li class="carouselTicker__item">
+                    <img
+                      class="object-fit-contain"
+                      src="assets/images/comunidades/wordpress.webp"
+                      alt="Logo WordPress Guayaquil"
+                      width="100"
+                      height="200"
                     />
                   </li>
                 </ul>
@@ -369,7 +393,15 @@
           </h2>
           <div class="row">
             <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
-              <div class="card h-100 card-inscripcion bg-white rounded-4 p-4">
+              <div
+                class="card h-100 card-inscripcion bg-white rounded-4 p-4 gap-2"
+              >
+                <img
+                  src="assets/icons/people-nearby.svg"
+                  width="45"
+                  height="45"
+                  alt="Icono de personas"
+                />
                 <h3 class="text-primary text-100">Quiero ser Voluntario</h3>
                 <p>
                   Buscamos voluntarios apasionados por la tecnología, con
@@ -385,7 +417,15 @@
               </div>
             </div>
             <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
-              <div class="card h-100 card-inscripcion bg-white rounded-4 p-4">
+              <div
+                class="card h-100 card-inscripcion bg-white rounded-4 p-4 gap-2"
+              >
+                <img
+                  src="assets/icons/microphone.svg"
+                  width="45"
+                  height="45"
+                  alt="Icono de ponente"
+                />
                 <h3 class="text-primary text-100">
                   Quiero ser <br />
                   Speaker
@@ -405,7 +445,15 @@
               </div>
             </div>
             <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
-              <div class="card h-100 card-inscripcion bg-white rounded-4 p-4">
+              <div
+                class="card h-100 card-inscripcion bg-white rounded-4 p-4 gap-2"
+              >
+                <img
+                  src="assets/icons/laptop.svg"
+                  width="45"
+                  height="45"
+                  alt="Icono de proyecto"
+                />
                 <h3 class="text-primary text-100">
                   Quiero presentar <br />
                   Mi Proyecto
@@ -430,11 +478,18 @@
       <!--InstallFest-->
       <section id="installfest" class="bg-secondary py-86 px-4">
         <div class="container d-flex flex-column gap-4">
-          <h2 class="ds-xs-4 fw-bold installFest my-auto">InstallFest</h2>
+          <h2 class="d-none">InstallFest</h2>
           <div class="row">
             <div class="col-md-6 mb-5 mb-lg-0">
+              <img
+                src="assets/images/installfest_title.svg"
+                alt="InstallFest"
+                class="w-100"
+              />
+            </div>
+            <div class="col-md-6 mb-5 mb-lg-0">
               <p>
-                un evento organizado para ayudar a los participantes a instalar
+                Un evento organizado para ayudar a los participantes a instalar
                 y configurar sistemas operativos, software o herramientas
                 tecnológicas en sus computadoras, generalmente orientado a
                 aquellos interesados en el mundo del software libre o la
@@ -472,14 +527,47 @@
                 >Inscríbete</a
               >
             </div>
-            <div class="col-md-6 mb-5 mb-lg-0">
-              <!-- Agregar imagen -->
-            </div>
           </div>
         </div>
       </section>
       <!--Sponsors-->
-      <section id="sponsors" class="bg-primary text-white py-86 px-4">
+      <section id="sponsors" class="bg-secondary py-86 px-4">
+        <div class="container d-flex flex-column gap-4 align-items-center">
+          <h2 class="ds-xs-3 fw-bold text-primary text-100 my-auto">
+            Sponsors
+          </h2>
+          <ul
+            class="d-flex flex-wrap gap-2 align-items-center justify-content-center list-unstyled"
+          >
+            <li>
+              <img
+                src="assets/images/sponsors/lexa_logo.webp"
+                alt="Logo Lexa"
+                class="object-fit-contain"
+                width="200"
+              />
+            </li>
+            <li>
+              <img
+                src="assets/images/sponsors/mento_logo.webp"
+                alt="Logo Lexa"
+                class="object-fit-contain"
+                width="200"
+              />
+            </li>
+            <li>
+              <img
+                src="assets/images/sponsors/ucsg_logo.webp"
+                alt="Logo Lexa"
+                class="object-fit-contain"
+                width="200"
+              />
+            </li>
+          </ul>
+        </div>
+      </section>
+      <!-- Auspicia el evento -->
+      <section id="info-sponsors" class="bg-primary text-white py-86 px-4">
         <div class="container d-flex flex-column gap-4">
           <h2 class="ds-xs-4 fw-bold text-white text-100 my-auto">
             Auspicia el evento
