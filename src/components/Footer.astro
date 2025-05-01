@@ -1,0 +1,185 @@
+---
+// Footer component for FLISol Guayaquil with improved accessibility
+const currentYear = new Date().getFullYear();
+---
+
+<footer aria-labelledby="footer-heading" class="bg-dark text-white">
+  <div class="section-footer position-relative">
+    <div class="container-fluid bgft-1">
+      <div class="container position-relative z-2">
+        <div class="row py-90">
+          <div class="col-lg-4 pe-10 mb-5 mb-lg-0">
+            <a href="/" aria-label="Volver a la página de inicio">
+              <img
+                src="/assets/images/logo-flisol-azul-2.png"
+                alt="Logo FLISoL Guayaquil"
+                width="200"
+                height="auto"
+              />
+            </a>
+            <p class="text-white fw-medium mt-3 mb-6 opacity-50">
+              21° Festival Latinoamericano de Instalación de Software Libre
+            </p>
+            
+            <h2 id="footer-heading" class="visually-hidden">Enlaces de pie de página</h2>
+            <h3 class="visually-hidden">Redes sociales</h3>
+            <div class="d-flex social-icons gap-1">
+              <a
+                href="https://www.facebook.com/flisolguayaquil"
+                class="text-white border border-end-0 border-light border-opacity-10 icon-shape icon-md social-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visita nuestro Facebook"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="10"
+                  height="17"
+                  viewBox="0 0 10 17"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M8.84863 9.20312H6.5415V16.0938H3.46533V9.20312H0.942871V6.37305H3.46533V4.18896C3.46533 1.72803 4.94189 0.34375 7.1875 0.34375C8.26416 0.34375 9.40234 0.559082 9.40234 0.559082V2.98926H8.14111C6.91064 2.98926 6.5415 3.72754 6.5415 4.52734V6.37305H9.2793L8.84863 9.20312Z"
+                    fill="white"
+                  />
+                </svg>
+              </a>
+              <a
+                href="https://twitter.com/flisolguayaquil"
+                class="text-white border border-end-0 border-light border-opacity-10 icon-shape icon-md social-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visita nuestro Twitter"
+              >
+                <i class="bi bi-twitter-x" aria-hidden="true"></i>
+              </a>
+              <a
+                href="https://www.instagram.com/flisolguayaquil"
+                class="text-white border border-light border-opacity-10 icon-shape icon-md social-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visita nuestro Instagram"
+              >
+                <i class="bi bi-instagram" aria-hidden="true"></i>
+              </a>
+              <a
+                href="https://github.com/flisolguayaquil"
+                class="text-white border border-start-0 border-light border-opacity-10 icon-shape icon-md social-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visita nuestro GitHub"
+              >
+                <i class="bi bi-github" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-8">
+            <div class="row">
+              <div class="col-lg-5 col-md-6 col-6 mb-5 mb-lg-0">
+                <h3
+                  class="text-white opacity-50 fs-6 fw-black text-uppercase pb-3"
+                >
+                  Enlaces de interés
+                </h3>
+                <nav aria-label="Enlaces de interés en el pie de página">
+                  <div class="d-flex flex-column align-items-start">
+                    <a
+                      class="hover-effect text-white mb-2 fw-medium fs-6"
+                      href="#"
+                      >Ediciones pasadas</a
+                    >
+                    <a
+                      class="hover-effect text-white mb-2 fw-medium fs-6"
+                      href="#"
+                      >Prensa</a
+                    >
+                    <a
+                      class="hover-effect text-white mb-2 fw-medium fs-6"
+                      href="#comunidades"
+                      >Comunidades</a
+                    >
+                    <a
+                      class="hover-effect text-white mb-2 fw-medium fs-6"
+                      href="#contacto"
+                      >Contacto</a
+                    >
+                  </div>
+                </nav>
+              </div>
+              
+              <div class="col-lg-7 col-md-6 col-6 mb-5 mb-lg-0">
+                <h3
+                  class="text-white opacity-50 fs-6 fw-black text-uppercase pb-3"
+                >
+                  Contacto
+                </h3>
+                <address class="not-italic">
+                  <p class="text-white opacity-75 mb-2">
+                    <i class="bi bi-envelope me-2" aria-hidden="true"></i>
+                    <a href="mailto:contacto@flisolguayaquil.org" class="text-white text-decoration-none hover-effect">
+                      contacto@flisolguayaquil.org
+                    </a>
+                  </p>
+                  <p class="text-white opacity-75 mb-0">
+                    <i class="bi bi-geo-alt me-2" aria-hidden="true"></i>
+                    Guayaquil, Ecuador
+                  </p>
+                </address>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div
+            class="d-flex flex-column flex-md-row align-items-center justify-content-between gap-3 py-4 border-top border-white border-opacity-10"
+          >
+            <span class="text-white opacity-50">© {currentYear} FLISol Guayaquil - Todos los derechos reservados</span>
+            <div class="d-flex">
+              <a href="#" class="link-hover-primary-light text-white me-3 hover-effect">
+                Código de conducta
+              </a>
+              <a href="#" class="link-hover-primary-light text-white hover-effect">
+                Política de privacidad
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .social-link {
+    transition: all 0.3s ease;
+  }
+  
+  .social-link:hover,
+  .social-link:focus {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px);
+  }
+  
+  .hover-effect {
+    transition: all 0.3s ease;
+  }
+  
+  .hover-effect:hover,
+  .hover-effect:focus {
+    color: #4c7bd0 !important;
+    text-decoration: underline;
+  }
+  
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+</style> 
