@@ -1,0 +1,29 @@
+---
+/**
+ * VisuallyHidden component
+ * 
+ * This component provides a way to hide content visually while keeping it accessible to screen readers.
+ * Use this for elements that should be announced to screen reader users but not displayed visually.
+ * 
+ * Usage:
+ * <VisuallyHidden>
+ *   This text is hidden visually but available to screen readers
+ * </VisuallyHidden>
+ */
+---
+
+<slot />
+
+<style>
+  :global(.visually-hidden) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+</style> 

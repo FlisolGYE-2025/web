@@ -1,0 +1,139 @@
+---
+// Communities component for FLISol Guayaquil with improved accessibility
+---
+
+<section id="comunidades" class="bg-secondary container-fluid py-86 px-4" aria-labelledby="communities-heading">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-3">
+        <div class="d-flex h-100 flex-column justify-content-center">
+          <h2 id="communities-heading" class="ds-xs-4 fw-bold text-primary text-100 my-auto">
+            Comunidades
+          </h2>
+          <p class="text-dark mt-3 d-lg-block d-none">
+            Organizaciones que apoyan y participan en FLISol Guayaquil 2025
+          </p>
+        </div>
+      </div>
+      <div class="col-lg-9">
+        <!-- Carousel with accessibility improvements -->
+        <div
+          class="carouselTicker carouselTicker-left position-relative z-1 mt-lg-0 mt-8"
+          aria-label="Carrusel de logotipos de comunidades participantes"
+          role="region"
+        >
+          <ul class="carouselTicker__list">
+            <li class="carouselTicker__item">
+              <a href="https://ethereum.org/es/community/" target="_blank" rel="noopener noreferrer" class="community-link">
+                <img
+                  class="object-fit-contain"
+                  src="/assets/images/comunidades/eth_ecuador.webp"
+                  alt="Logo ETH Ecuador"
+                  width="200"
+                  height="80"
+                  loading="lazy"
+                />
+                <span class="visually-hidden">ETH Ecuador</span>
+              </a>
+            </li>
+            <li class="carouselTicker__item">
+              <a href="https://funpython.org/" target="_blank" rel="noopener noreferrer" class="community-link">
+                <img
+                  class="object-fit-contain p-4"
+                  src="/assets/images/comunidades/funpython_logo.webp"
+                  alt="Logo FunPython"
+                  width="200"
+                  height="80"
+                  loading="lazy"
+                />
+                <span class="visually-hidden">FunPython</span>
+              </a>
+            </li>
+            <li class="carouselTicker__item">
+              <a href="#" class="community-link">
+                <img
+                  class="object-fit-contain"
+                  src="/assets/images/comunidades/herux.webp"
+                  alt="Logo HerUX"
+                  width="200"
+                  height="80"
+                  loading="lazy"
+                />
+                <span class="visually-hidden">HerUX</span>
+              </a>
+            </li>
+            <li class="carouselTicker__item">
+              <a href="#" class="community-link">
+                <img
+                  class="object-fit-contain"
+                  src="/assets/images/comunidades/kokoa_logo.webp"
+                  alt="Logo Kokoa"
+                  width="200"
+                  height="80"
+                  loading="lazy"
+                />
+                <span class="visually-hidden">Kokoa</span>
+              </a>
+            </li>
+            <li class="carouselTicker__item">
+              <a href="#" class="community-link">
+                <img
+                  class="object-fit-contain"
+                  src="/assets/images/comunidades/condorcoders.webp"
+                  alt="Logo CondorCoders"
+                  width="200"
+                  height="80"
+                  loading="lazy"
+                />
+                <span class="visually-hidden">CondorCoders</span>
+              </a>
+            </li>
+            <li class="carouselTicker__item">
+              <a href="https://wpguayaquil.org/" target="_blank" rel="noopener noreferrer" class="community-link">
+                <img
+                  class="object-fit-contain"
+                  src="/assets/images/comunidades/wordpress.webp"
+                  alt="Logo WordPress Guayaquil"
+                  width="100"
+                  height="80"
+                  loading="lazy"
+                />
+                <span class="visually-hidden">WordPress Guayaquil</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .community-link {
+    display: block;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+  }
+  
+  .community-link:hover,
+  .community-link:focus {
+    transform: translateY(-5px);
+  }
+  
+  .community-link:focus {
+    outline: 2px solid #4c7bd0;
+    outline-offset: 4px;
+  }
+  
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+</style> 

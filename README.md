@@ -1,84 +1,100 @@
-# FLISol Guayaquil Website
+# FLISol Guayaquil 2025 Website
 
-Este repositorio contiene el sitio web oficial para el Festival Latinoamericano de Instalación de Software Libre (FLISol) en Guayaquil.
+Este repositorio contiene el sitio web oficial del Festival Latinoamericano de Instalación de Software Libre (FLISol) Guayaquil 2025, construido con [Astro](https://astro.build/).
 
-## Acerca del Proyecto
+## 🚀 Estructura del Proyecto
 
-FLISol es el mayor evento de difusión del Software Libre en América Latina. Se realiza desde el año 2005 y tiene como objetivo principal promover el uso del software libre, dando a conocer su filosofía, alcances, avances y desarrollo.
+```
+/
+├── public/
+│   └── assets/
+│       ├── css/
+│       ├── fonts/
+│       ├── icons/
+│       ├── images/
+│       └── js/
+├── src/
+│   ├── components/
+│   │   ├── Communities.astro
+│   │   ├── Contact.astro
+│   │   ├── Footer.astro
+│   │   ├── Header.astro
+│   │   ├── Hero.astro
+│   │   ├── InstallFest.astro
+│   │   ├── Registrations.astro
+│   │   ├── SponsorInfo.astro
+│   │   ├── Sponsors.astro
+│   │   └── VisuallyHidden.astro
+│   ├── layouts/
+│   │   └── Layout.astro
+│   └── pages/
+│       └── index.astro
+├── package.json
+└── astro.config.mjs
+```
 
-## Requisitos Previos
+## 🚀 Cómo ejecutar el proyecto
 
-Para trabajar con este proyecto, necesitarás tener instalado:
+### Requisitos previos
 
-- [Node.js](https://nodejs.org/) (v14.x o superior)
-- [npm](https://www.npmjs.com/) (v6.x o superior) o [yarn](https://yarnpkg.com/)
+- Node.js (versión 18.14.1 o superior)
+- npm (viene con Node.js)
 
-## Instalación
+### Instalación
 
-Sigue estos pasos para configurar el entorno de desarrollo local:
-
-1. Clona el repositorio:
-   ```bash
-   git clone https://github.com/tuusuario/flisolguayaquil.git
-   cd flisolguayaquil
-   ```
+1. Clona este repositorio:
+```bash
+git clone https://github.com/your-username/flisol-webgye.git
+cd flisol-webgye
+```
 
 2. Instala las dependencias:
-   ```bash
-   npm install
-   # o si prefieres usar yarn
-   yarn install
-   ```
+```bash
+npm install
+```
 
-## Ejecución en Desarrollo
-
-Para iniciar el servidor de desarrollo:
-
+3. Inicia el servidor de desarrollo:
 ```bash
 npm run dev
-# o
-gulp dev
 ```
 
-Esto iniciará un servidor local y abrirá el sitio en tu navegador. El servidor se actualizará automáticamente cuando realices cambios en los archivos del proyecto.
+4. Abre tu navegador en `http://localhost:4321` para ver el sitio.
 
-## Compilación para Producción
+## 🔨 Comandos disponibles
 
-Para compilar el proyecto para producción:
+- `npm run dev` - Inicia el servidor de desarrollo
+- `npm run build` - Construye el sitio para producción
+- `npm run preview` - Vista previa del sitio construido antes de desplegar
 
-```bash
-npm run build
-# o
-gulp build
-```
+## 📝 Tecnologías utilizadas
 
-Esto generará los archivos optimizados en la carpeta `dist/`, listos para ser desplegados en un servidor web.
+- [Astro](https://astro.build/) - Framework web moderno
+- [Bootstrap](https://getbootstrap.com/) - Framework CSS para diseño responsivo
+- JavaScript para interactividad
+- GSAP para animaciones
+- jQuery para manipulación del DOM
 
-## Estructura del Proyecto
+## 📜 Características principales
 
-- `src/`: Contiene los archivos fuente del proyecto
-  - `views/`: Archivos HTML
-  - `assets/`: Recursos como imágenes, fuentes, CSS y JavaScript
-    - `scss/`: Archivos Sass que compilan a CSS
-    - `js/`: Scripts de JavaScript
-    - `images/`: Imágenes e iconos
-    - `fonts/`: Fuentes utilizadas en el proyecto
-  - `css/`: CSS compilado desde SCSS
+- **Diseño responsive**: Adaptable a diferentes tamaños de pantalla
+- **Optimización para SEO**: Metadatos estructurados y buenas prácticas
+- **Accesibilidad**: Siguiendo estándares WCAG
+- **Rendimiento optimizado**: Carga rápida y experiencia fluida
 
-- `dist/`: Carpeta donde se generan los archivos para producción
+## 🤝 Contribuir
 
-## Tecnologías Utilizadas
+Si deseas contribuir a este proyecto, por favor:
 
-- HTML5
-- CSS3/Sass
-- JavaScript
-- Gulp (Task runner)
-- Bootstrap (Framework CSS)
+1. Haz un fork del repositorio
+2. Crea una rama para tu característica (`git checkout -b feature/amazing-feature`)
+3. Haz commit de tus cambios (`git commit -m 'Add some amazing feature'`)
+4. Empuja a la rama (`git push origin feature/amazing-feature`)
+5. Abre un Pull Request
 
-## Licencia
+## 📜 Licencia
 
-Este proyecto está bajo la Licencia MIT. Ver el archivo [LICENSE](LICENSE) para más detalles.
+Este proyecto está bajo la licencia ISC - ver el archivo [LICENSE](LICENSE) para más detalles.
 
-## Contacto
+## 📞 Contacto
 
-Para más información sobre FLISol Guayaquil, visita [nuestra página web](https://flisolguayaquil.org) o contáctanos por [correo electrónico](mailto:contacto@flisolguayaquil.org).
+Para cualquier consulta, puedes contactarnos en contacto@flisolguayaquil.org

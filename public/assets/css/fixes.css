@@ -1,0 +1,39 @@
+/* Fixes for white border and overflow issues */
+
+html, body {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  width: 100vw;
+  max-width: 100vw;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: 0;
+  margin-right: 0;
+  left: 0;
+  right: 0;
+}
+
+.container-fluid {
+  max-width: 100%;
+}
+
+/* Fix any potential Bootstrap container width issues */
+@media (min-width: 1200px) {
+  .container-xl, .container-lg, .container-md, .container-sm, .container {
+    max-width: 100%;
+  }
+}
+
+/* Fix for mobile view */
+@media (max-width: 767px) {
+  .navbar, .container-fluid {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+} 
