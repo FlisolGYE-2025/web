@@ -2,57 +2,116 @@
 // InstallFest component for FLISol Guayaquil
 ---
 
-<section id="installfest" class="bg-secondary py-86 px-4">
+<section id="installfest" class="bg-secondary installfest-bg pt-24 pb-86"
+
+>
   <div class="container d-flex flex-column gap-4">
     <h2 class="visually-hidden">InstallFest</h2>
-    <div class="row">
-      <div class="col-md-6 mb-5 mb-lg-0" data-aos="fade-right">
+    <div class="column">
+      <!-- Clouds -->
+      <div class="w-100 h-10 d-flex justify-content-center">
         <img
-          src="/assets/images/installfest_title.svg"
-          alt="InstallFest"
-          class="w-100"
+        src="/assets/images/sky.svg"
+        alt="InstallFest"
+        class="w-40 h-10"
         />
       </div>
-      <div class="col-md-6 mb-5 mb-lg-0 text-black" data-aos="fade-left">
-        <p class="text-black">
-          Un evento organizado para ayudar a los participantes a instalar y
-          configurar sistemas operativos, software o herramientas tecnológicas
-          en sus computadoras, generalmente orientado a aquellos interesados en
-          el mundo del software libre o la programación.
-        </p>
-        <p class="text-black">Si deseas participar, es recomendable que:</p>
-        <ul class="list-unstyled">
-          <li class="d-flex align-items-center gap-2 mb-2">
-            <i class="bi bi-check-circle installFest"></i>
-            <span>Traigas tu computadora portátil.</span>
-          </li>
-          <li class="d-flex align-items-center gap-2 mb-2">
-            <i class="bi bi-check-circle installFest"></i>
-            <span
-              >Hagas un backup de tus datos importantes (documentos, fotos,
-              videos, etc.).</span
-            >
-          </li>
-          <li class="d-flex align-items-center gap-2 mb-2">
-            <i class="bi bi-check-circle installFest"></i>
-            <span
-              >Traigas un USB o disco duro externo si necesitas instalar algo
-              desde ahí.</span
-            >
-          </li>
-          <li class="d-flex align-items-center gap-2 mb-2">
-            <i class="bi bi-check-circle installFest"></i>
-            <span>Traigas tu entusiasmo y ganas de aprender.</span>
-          </li>
-        </ul>
-        <a
-          target="_blank"
-          rel="noopener"
-          href="https://lu.ma/qq6m2ohc"
-          class="btn btn-outline-primary installFestBg border-2 hover-up text-100 p-2 px-4 mt-4"
-          >Inscríbete</a
-        >
+      <!-- Title and info -->
+      <div class="installfest-content mx-auto  px-6">
+        <div class="flex-column justify-content-center col-md-8 col-lg-6 mb-5 mb-lg-0 " data-aos="fade-right">
+          <img
+            src="/assets/images/installfest_title.svg"
+            alt="InstallFest"
+            class="w-100"
+          />
+          
+        </div>
+        <div class="installfest-description col-md-5 mb-5 mb-lg-0 text-black" data-aos="fade-left">
+          <p class="text-black">
+            Un evento organizado para ayudar a los participantes a instalar y
+            configurar sistemas operativos, software o herramientas tecnológicas
+            en sus computadoras, generalmente orientado a aquellos interesados en
+            el mundo del software libre o la programación.
+          </p>
+          <p class="text-black">Si deseas participar, es recomendable que:</p>
+          <ul class="list-unstyled">
+            <li class="d-flex align-items-center gap-2 mb-2">
+              <i class="bi bi-check-circle installFest"></i>
+              <span>Traigas tu computadora portátil.</span>
+            </li>
+            <li class="d-flex align-items-center gap-2 mb-2">
+              <i class="bi bi-check-circle installFest"></i>
+              <span
+                >Hagas un backup de tus datos importantes (documentos, fotos,
+                videos, etc.).</span
+              >
+            </li>
+            <li class="d-flex align-items-center gap-2 mb-2">
+              <i class="bi bi-check-circle installFest"></i>
+              <span
+                >Traigas un USB o disco duro externo si necesitas instalar algo
+                desde ahí.</span
+              >
+            </li>
+            <li class="d-flex align-items-center gap-2 mb-2">
+              <i class="bi bi-check-circle installFest"></i>
+              <span>Traigas tu entusiasmo y ganas de aprender.</span>
+            </li>
+          </ul>
+          <a
+            target="_blank"
+            rel="noopener"
+            href="https://lu.ma/qq6m2ohc"
+            class="btn btn-outline-primary installFestBg border-2 hover-up text-100 p-2 px-4 mt-4"
+            >Inscríbete</a
+          >
+        </div>
       </div>
     </div>
   </div>
 </section>
+
+
+<style>
+  .installfest-bg{
+    background-image: url('/assets/images/installfest_landscape.svg');  
+    height: 92vh;
+    background-repeat: no-repeat; 
+    background-position-y:bottom
+}
+
+  .installfest-content{
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+@media (max-width: 890px){
+  .installfest-bg{
+    height: 130vh
+  }
+  .installfest-content{
+    width: 100%;
+    flex-direction: column;
+    justify-items: center;
+  }
+  .installfest-description{
+    width: 100%;
+  },
+  .installfest-image{
+    width: 100%
+  }
+}
+
+@media (max-width: 750px){
+  .installfest-bg{
+    height: 145vh
+  }
+}
+@media (max-width: 480px){
+  .installfest-bg{
+    height: 114vh
+  }
+}
+</style>
