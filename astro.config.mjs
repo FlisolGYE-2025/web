@@ -3,6 +3,7 @@ import compress from "astro-compress";
 
 export default defineConfig({
   site: "https://flisolgye-2025.github.io",
+  base: "web",
   integrations: [
     compress({
       css: true,
