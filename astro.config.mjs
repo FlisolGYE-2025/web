@@ -1,8 +1,8 @@
-import { defineConfig } from 'astro/config';
-import compress from 'astro-compress';
+import { defineConfig } from "astro/config";
+import compress from "astro-compress";
 
 export default defineConfig({
-  site: 'https://flisolguayaquil.org',
+  site: "https://flisolgye-2025.github.io",
   integrations: [
     compress({
       css: true,
@@ -13,10 +13,7 @@ export default defineConfig({
     }),
   ],
   build: {
-    assets: '_assets',
+    assets: "_assets",
   },
   compressHTML: true,
-  experimental: {
-    optimizeHoistedScript: true,
-  },
-}); 
+});

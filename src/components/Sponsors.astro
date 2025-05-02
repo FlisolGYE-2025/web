@@ -1,43 +1,61 @@
 ---
 // Sponsors component for FLISol Guayaquil
+const sponsors = [
+  {
+    name: "Lexa",
+    logo: "lexa_logo.webp",
+    alt: "Logo Lexa",
+    link: "#",
+  },
+  // {
+  //   name: "Mento",
+  //   logo: "/assets/images/sponsors/mento_logo.webp",
+  //   alt: "Logo Mento",
+  //   link: "#",
+  // },
+  {
+    name: "UCSG",
+    logo: "ucsg_logo.webp",
+    alt: "Logo UCSG",
+    link: "#",
+  },
+  {
+    name: "Musyana Store",
+    logo: "musyana_store.webp",
+    alt: "Logo Musyana Store",
+    link: "#",
+  },
+];
 ---
 
 <section id="sponsors" class="bg-secondary py-86 px-4">
   <div class="container d-flex flex-column gap-4 align-items-center">
-    <h2 class="ds-xs-3 fw-bold text-primary text-100 my-auto">
-      Sponsors
-    </h2>
+    <h2 class="ds-xs-3 fw-bold text-primary text-100 my-auto">Sponsors</h2>
     <ul
       class="d-flex flex-wrap gap-2 align-items-center justify-content-center list-unstyled"
       data-aos="fade-up"
     >
-      <li>
-        <img
-          src="/assets/images/sponsors/lexa_logo.webp"
-          alt="Logo Lexa"
-          class="object-fit-contain"
-          width="200"
-          loading="lazy"
-        />
-      </li>
-      <li>
-        <img
-          src="/assets/images/sponsors/mento_logo.webp"
-          alt="Logo Mento"
-          class="object-fit-contain"
-          width="200"
-          loading="lazy"
-        />
-      </li>
-      <li>
-        <img
-          src="/assets/images/sponsors/ucsg_logo.webp"
-          alt="Logo UCSG"
-          class="object-fit-contain"
-          width="200"
-          loading="lazy"
-        />
-      </li>
+      {
+        sponsors.map((sponsor) => (
+          <li class="d-flex flex-column align-items-center">
+            <a
+              href={sponsor.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover-up"
+            >
+              <img
+                src={`/assets/images/sponsors/${sponsor.logo}`}
+                alt={sponsor.alt}
+                class="object-fit-contain"
+                width="200"
+                loading="lazy"
+              />
+            </a>
+            <p class="visually-hidden">{sponsor.name}</p>
+          </li>
+        ))
+      }
     </ul>
   </div>
-</section> 
+</section>

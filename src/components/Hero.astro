@@ -1,4 +1,6 @@
 ---
+import ButtonLink from "./ui/ButtonLink.astro";
+
 // Hero component for FLISol Guayaquil with improved accessibility
 ---
 
@@ -33,97 +35,45 @@
       />
     </div>
     <h1 id="hero-heading" class="visually-hidden">
-      FLISol Guayaquil 2025 Festival Latinoamericano de Instalación de
-      Software Libre
+      FLISol Guayaquil 2025 Festival Latinoamericano de Instalación de Software
+      Libre
     </h1>
     <!-- Logo with responsive switching -->
     <picture>
-      <source 
-        media="(min-width: 768px)" 
+      <source
+        media="(min-width: 768px)"
         srcset="/assets/images/logo_full_white.webp"
       />
-      <source 
-        media="(max-width: 767px)" 
+      <source
+        media="(max-width: 767px)"
         srcset="/assets/images/logo_full_white.webp"
       />
       <img
         src="/assets/images/logo_full_white.webp"
         alt="FLISol Guayaquil 2025 - Festival Latinoamericano de Instalación de Software Libre"
         class="logo-main w-auto mx-auto px-4"
-        width="650" 
+        width="650"
         height="auto"
         fetchpriority="high"
       />
     </picture>
     <div class="w-full d-flex flex-column flex-md-row gap-2">
-      <a
-        target="_blank"
-        rel="noopener noreferrer"
+      <ButtonLink
         href="https://lu.ma/qq6m2ohc"
-        class="btn bg-white text-primary hover-up text-100 p-2 px-4"
-        aria-label="Inscríbete en FLISol Guayaquil 2025"
-      >
-        Inscríbete
-        <svg
-          class="ms-2"
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          aria-hidden="true"
-        >
-          <path
-            d="M17.25 15.25V6.75H8.75"
-            stroke="#4c7bd0"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          ></path>
-          <path
-            d="M17 7L6.75 17.25"
-            stroke="#4c7bd0"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          ></path>
-        </svg>
-      </a>
-      <a
-        target="_blank"
-        rel="noopener noreferrer"
+        label="Inscríbete"
+        class="bg-white-keep"
+        ariaLabel="Inscríbete en FLISol Guayaquil 2025"
+      />
+
+      <ButtonLink
         href="https://forms.gle/45Cu9ou995g7TntY8"
-        class="btn btn-outline-secondary bg-primary border-2 border-white hover-up bg-transparent text-100 p-2 px-4"
-        aria-label="Auspicia el evento FLISol Guayaquil 2025"
-      >
-        Auspicia el evento
-        <svg
-          class="ms-2"
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          aria-hidden="true"
-        >
-          <path
-            d="M17.25 15.25V6.75H8.75"
-            stroke="#fff"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          ></path>
-          <path
-            d="M17 7L6.75 17.25"
-            stroke="#fff"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          ></path>
-        </svg>
-      </a>
+        label="Auspicia el evento"
+        variant="secondary"
+        class="text-white-keep border-white-keep"
+        ariaLabel="Auspicia el evento FLISol Guayaquil 2025"
+      />
     </div>
-    
+
     <!-- Mobile scroll indicator -->
     <!-- <div class="d-block d-md-none position-absolute bottom-0 start-50 translate-middle-x text-white text-center" aria-hidden="true">
       <div class="scroll-indicator mb-1">
@@ -139,9 +89,13 @@
   .scroll-indicator {
     animation: bounce 2s infinite;
   }
-  
+
   @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
       transform: translateY(0);
     }
     40% {
@@ -151,13 +105,13 @@
       transform: translateY(-5px);
     }
   }
-  
+
   .logo-main {
     max-width: 100%;
     max-height: 250px;
     object-fit: contain;
   }
-  
+
   .visually-hidden {
     position: absolute;
     width: 1px;
@@ -169,4 +123,4 @@
     white-space: nowrap;
     border-width: 0;
   }
-</style> 
+</style>
