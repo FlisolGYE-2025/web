@@ -1,0 +1,77 @@
+---
+interface Props {
+  href: string;
+  label: string;
+  variant?: "primary" | "secondary";
+  class?: string;
+  target?: string;
+  rel?: string;
+  ariaLabel?: string;
+  [key: string]: any;
+}
+
+const {
+  href,
+  label,
+  variant = "primary",
+  class: customClass = "",
+  target = "_self",
+  rel = "noopener noreferrer",
+  ariaLabel = label,
+  ...rest
+} = Astro.props;
+
+const baseClass = "btn p-2 px-4 hover-up";
+const variants = {
+  primary: "bg-primary-keep text-primary",
+  secondary:
+    "btn-outline-secondary border-2 border-primary text-primary-always secondary",
+};
+const classes = `${baseClass} ${variants[variant] || ""} ${customClass}`;
+---
+
+<a
+  href={href}
+  target={target}
+  rel={rel}
+  class={classes}
+  aria-label={ariaLabel}
+  {...rest}
+>
+  {label}
+  <svg
+    class="ms-2"
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    aria-hidden="true"
+  >
+    <path
+      d="M17.25 15.25V6.75H8.75"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"></path>
+    <path
+      d="M17 7L6.75 17.25"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"></path>
+  </svg>
+</a>
+
+<style>
+  .secondary {
+    --bs-btn-bg: transparent;
+    --bs-btn-hover-bg: transparent;
+    --bs-btn-hover-color: inherit;
+
+    &:hover svg path {
+      stroke: currentColor;
+      fill: none;
+    }
+  }
+</style>

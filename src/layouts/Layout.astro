@@ -5,10 +5,10 @@ interface Props {
   image?: string;
 }
 
-const { 
-  title, 
+const {
+  title,
   description = "Únete a FLISoL Guayaquil 2025, el mayor evento de software libre en Latinoamérica. Vive charlas, talleres y la instalación gratuita de software libre.",
-  image = "/assets/images/logo_full_white.webp"
+  image = "/assets/images/logo_full_white.webp",
 } = Astro.props;
 
 // Base URL for canonical links
@@ -25,7 +25,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
     <link rel="canonical" href={canonicalURL} />
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />
@@ -39,12 +39,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={new URL(image, Astro.site)} />
-    
+
     <meta
       name="keywords"
       content="FLISoL Guayaquil 2025, software libre, festival de instalación, evento tecnológico, open source, tecnología Guayaquil, talleres de software, Linux, comunidad tech Ecuador"
     />
-    
+
     <!-- Favicon icon-->
     <link
       rel="apple-touch-icon"
@@ -63,10 +63,16 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       sizes="16x16"
       href="/assets/images/favicon-16x16.png"
     />
-    
+
     <!-- Preload critical fonts -->
-    <link rel="preload" href="/assets/fonts/satoshi/Satoshi-Variable.woff2" as="font" type="font/woff2" crossorigin>
-    
+    <link
+      rel="preload"
+      href="/assets/fonts/satoshi/Satoshi-Variable.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
     <!-- Libs CSS -->
     <link rel="stylesheet" href="/assets/css/vendors/bootstrap.min.css" />
     <link rel="stylesheet" href="/assets/css/vendors/swiper-bundle.min.css" />
@@ -106,10 +112,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       >
         <path
           d="M8 1H32C35.866 1 39 4.13401 39 8V32C39 35.866 35.866 39 32 39H8C4.13401 39 1 35.866 1 32V8C1 4.13401 4.13401 1 8 1Z"
-        />
+        ></path>
       </svg>
     </div>
-    
+
     <!-- Libs JS -->
     <script src="/assets/js/vendors/jquery-3.7.1.min.js" defer></script>
     <script src="/assets/js/vendors/bootstrap.bundle.min.js" defer></script>
@@ -117,25 +123,28 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <script src="/assets/js/vendors/aos.js" defer></script>
     <script src="/assets/js/vendors/wow.min.js" defer></script>
     <script src="/assets/js/vendors/headhesive.min.js" defer></script>
-    <script src="/assets/js/vendors/jquery.magnific-popup.min.js" defer></script>
+    <script src="/assets/js/vendors/jquery.magnific-popup.min.js" defer
+    ></script>
     <script src="/assets/js/vendors/gsap.min.js" defer></script>
     <script src="/assets/js/vendors/imagesloaded.pkgd.min.js" defer></script>
     <script src="/assets/js/vendors/isotope.pkgd.min.js" defer></script>
     <script src="/assets/js/vendors/ScrollToPlugin.min.js" defer></script>
     <script src="/assets/js/vendors/ScrollTrigger.min.js" defer></script>
-    <script src="/assets/js/vendors/jquery.carouselTicker.min.js" defer></script>
+    <script src="/assets/js/vendors/jquery.carouselTicker.min.js" defer
+    ></script>
     <script src="/assets/js/vendors/jquery.odometer.min.js" defer></script>
     <script src="/assets/js/vendors/jquery.appear.js" defer></script>
     <script src="/assets/js/vendors/gsap-custom.js" defer></script>
     <script src="/assets/js/vendors/bouncing-blob.js" defer></script>
-    
+
     <!-- Theme JS -->
     <script src="/assets/js/vendors/color-modes.js" is:inline></script>
     <script src="/assets/js/main.js" defer></script>
 
     <style is:global>
       /* Fix for white border/overflow issues */
-      html, body {
+      html,
+      body {
         width: 100%;
         max-width: 100vw;
         overflow-x: hidden;
@@ -144,4 +153,5 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       }
     </style>
   </body>
-</html> 
+</html>
+
