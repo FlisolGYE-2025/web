@@ -5,11 +5,11 @@
 <section id="installfest" class="bg-secondary installfest-bg pt-24 pb-86"
 
 >
-  <div class="container d-flex flex-column gap-4">
+  <div class="container d-flex flex-column gap-4 pb-10">
     <h2 class="visually-hidden">InstallFest</h2>
     <div class="column">
       <!-- Clouds -->
-      <div class="w-100 h-10 d-flex justify-content-center">
+      <div class="installfest-sky w-100 h-10 d-flex justify-content-center">
         <img
         src="/assets/images/sky.svg"
         alt="InstallFest"
@@ -17,7 +17,7 @@
         />
       </div>
       <!-- Title and info -->
-      <div class="installfest-content mx-auto  px-6">
+      <div class="installfest-content mx-auto pb-6 px-6">
         <div class="flex-column justify-content-center col-md-8 col-lg-6 mb-5 mb-lg-0 " data-aos="fade-right">
           <img
             src="/assets/images/installfest_title.svg"
@@ -26,7 +26,7 @@
           />
           
         </div>
-        <div class="installfest-description col-md-5 mb-5 mb-lg-0 text-black" data-aos="fade-left">
+        <div class="installfest-description col-md-7 mb-10 mb-lg-0 text-black" data-aos="fade-left">
           <p class="text-black">
             Un evento organizado para ayudar a los participantes a instalar y
             configurar sistemas operativos, software o herramientas tecnológicas
@@ -75,9 +75,9 @@
 <style>
   .installfest-bg{
     background-image: url('/assets/images/installfest_landscape.svg');  
-    height: 92vh;
+    min-height: fit-content;
     background-repeat: no-repeat; 
-    background-position-y:bottom
+    background-position-y:bottom;
 }
 
   .installfest-content{
@@ -87,9 +87,9 @@
     justify-content: center;
   }
 
-@media (max-width: 890px){
-  .installfest-bg{
-    height: 130vh
+@media (max-width: 992px){
+  .installfest-bg, .installfest-content, .installfest-sky{
+    transform: scaleX(-1)
   }
   .installfest-content{
     width: 100%;
@@ -104,14 +104,11 @@
   }
 }
 
-@media (max-width: 750px){
-  .installfest-bg{
-    height: 145vh
-  }
-}
-@media (max-width: 480px){
+@media (max-width: 720px){
+  
   .installfest-bg{
     height: 114vh
   }
 }
+
 </style>
