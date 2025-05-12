@@ -1,0 +1,44 @@
+---
+/**
+ * VolunteerCard component
+ *
+ */
+
+interface Props {
+  name: string;
+  role: string;
+  linkedin: string;
+  image: string;
+}
+
+const { name, role, linkedin, image } = Astro.props;
+---
+
+<div class="volunteer-card h-100">
+  <div class="card border-0 shadow-sm h-100 position-relative overflow-hidden">
+    <div class="card-body p-4 text-center">
+      <div class="avatar-wrapper mb-3 mx-auto">
+        <img 
+          src={image} 
+          alt={`Avatar de ${name}`} 
+          class="avatar rounded-circle bg-light p-1 border border-2 border-primary"
+          width="100"
+          height="100"
+        />
+      </div>
+      <h3 class="card-title h5 mb-1">{name}</h3>
+      <p class="card-text text-muted mb-3">{role}</p>
+      <a 
+        href={linkedin} 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="btn btn-sm btn-outline-primary rounded-pill px-3 mt-2"
+        aria-label={`Ver perfil de LinkedIn de ${name}`}
+      >
+        <i class="bi bi-linkedin me-1"></i>
+        LinkedIn
+      </a>
+    </div>
+    <div class="card-gradient"></div>
+  </div>
+</div>
