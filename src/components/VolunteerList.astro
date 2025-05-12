@@ -1,0 +1,283 @@
+---
+/**
+ * VolunteerList component
+ * 
+ * Muestra una lista de voluntarios organizados alfabéticamente y con
+ * funcionalidades de filtrado por área y búsqueda por nombre.
+ */
+
+import type { Volunteer } from '../types/volunteer';
+
+interface Props {
+  volunteers: Volunteer[];
+  columns?: number;
+}
+
+const { volunteers, columns = 2 } = Astro.props;
+
+const avatarPaths = {
+  male: "/assets/images/volunteers/avatar-male.svg",
+  female: "/assets/images/volunteers/avatar-female.svg"
+};
+
+const sortedVolunteers = [...volunteers].sort((a, b) => a.name.localeCompare(b.name));
+
+const uniqueFirstLetters = [...new Set(sortedVolunteers.map(v => v.name.charAt(0).toUpperCase()))].sort();
+
+const volunteersByLetter = sortedVolunteers.reduce((acc, volunteer) => {
+  const firstLetter = volunteer.name.charAt(0).toUpperCase();
+  if (!acc[firstLetter]) {
+    acc[firstLetter] = [];
+  }
+  acc[firstLetter].push(volunteer);
+  return acc;
+}, {} as Record<string, Volunteer[]>);
+
+const areaCount = sortedVolunteers.reduce((acc, volunteer) => {
+  if (!acc[volunteer.area]) {
+    acc[volunteer.area] = 0;
+  }
+  acc[volunteer.area]++;
+  return acc;
+}, {} as Record<string, number>);
+
+const uniqueAreas = Object.keys(areaCount).sort();
+---
+
+<div class="volunteer-list">
+  <div class="volunteer-controls mb-4">
+    <div class="row g-3">
+      <div class="col-md-6">
+        <div class="input-group">
+          <span class="input-group-text bg-white border-end-0">
+            <i class="bi bi-search text-muted"></i>
+          </span>
+          <input 
+            type="search" 
+            class="form-control border-start-0 ps-0" 
+            placeholder="Buscar voluntario..." 
+            id="volunteer-search"
+            aria-label="Buscar voluntario por nombre"
+          >
+        </div>
+      </div>
+      <div class="col-md-6">
+        <select class="form-select" id="area-filter" aria-label="Filtrar por área">
+          <option value="all" selected>Todas las áreas</option>
+          {uniqueAreas.map(area => (
+            <option value={area}>{area} ({areaCount[area]})</option>
+          ))}
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <nav class="alphabet-nav mb-3" aria-label="Navegación alfabética">
+    <div class="d-flex flex-wrap justify-content-center gap-1 mb-3">
+      {uniqueFirstLetters.map(letter => (
+        <a 
+          href={`#letter-${letter}`} 
+          class="btn btn-sm btn-outline-primary rounded-circle alphabet-btn"
+          data-letter={letter}
+          aria-label={`Saltar a nombres con ${letter}`}
+        >
+          {letter}
+        </a>
+      ))}
+    </div>
+  </nav>
+
+  <div class="card shadow-sm rounded-3 volunteer-card">
+    <div id="no-results" class="p-5 text-center d-none">
+      <p class="mb-0 text-muted">No se encontraron voluntarios con los criterios de búsqueda.</p>
+    </div>
+
+    {Object.keys(volunteersByLetter).sort().map(letter => (
+      <div class="letter-group" data-letter={letter} id={`letter-${letter}`}>
+        <div class="letter-header bg-light p-2 ps-4 border-bottom">
+          <h3 class="h5 mb-0 text-primary">{letter}</h3>
+        </div>
+        <ul class="list-group list-group-flush volunteer-group">
+          {volunteersByLetter[letter].map((volunteer) => (
+            <li class="list-group-item px-4 py-3 d-flex align-items-center volunteer-item" data-area={volunteer.area}>
+              <img 
+                src={avatarPaths[volunteer.gender as keyof typeof avatarPaths]} 
+                alt={`Avatar de ${volunteer.name}`} 
+                width="48" 
+                height="48"
+                class="rounded-circle me-3 border border-2 border-primary p-1"
+                loading="lazy"
+              />
+              <div class="flex-grow-1">
+                <h4 class="fs-6 fw-semibold mb-0">{volunteer.name}</h4>
+                <p class="text-muted mb-0 small area-tag">{volunteer.area}</p>
+              </div>
+              {volunteer.linkedin && (
+                <a 
+                  href={volunteer.linkedin} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  class="btn btn-sm btn-outline-primary rounded-pill ms-2"
+                  aria-label={`Ver perfil de LinkedIn de ${volunteer.name}`}
+                >
+                  <i class="bi bi-linkedin"></i>
+                </a>
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
+
+    <div class="d-flex justify-content-center p-3 border-top">
+      <a href="#volunteer-search" class="btn btn-sm btn-light rounded-pill">
+        <i class="bi bi-arrow-up me-1"></i> Volver arriba
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('volunteer-search') as HTMLInputElement;
+    const areaFilter = document.getElementById('area-filter') as HTMLSelectElement;
+    const volunteerItems = document.querySelectorAll('.volunteer-item') as NodeListOf<HTMLElement>;
+    const letterGroups = document.querySelectorAll('.letter-group') as NodeListOf<HTMLElement>;
+    const noResults = document.getElementById('no-results') as HTMLElement;
+    const alphabetBtns = document.querySelectorAll('.alphabet-btn') as NodeListOf<HTMLElement>;
+
+    function filterVolunteers() {
+      const searchTerm = searchInput.value.toLowerCase();
+      const selectedArea = areaFilter.value;
+      let visibleCount = 0;
+      
+      const visibleLetters: Record<string, boolean> = {};
+      
+      volunteerItems.forEach(item => {
+        const name = item.querySelector('h4')?.textContent?.toLowerCase() || '';
+        const area = item.getAttribute('data-area') || '';
+        const isAreaMatch = selectedArea === 'all' || area === selectedArea;
+        const isSearchMatch = name.includes(searchTerm);
+        
+        const isVisible = isAreaMatch && isSearchMatch;
+        item.style.display = isVisible ? '' : 'none';
+        
+        if (isVisible) {
+          visibleCount++;
+          const letterGroup = item.closest('.letter-group');
+          if (letterGroup) {
+            const letter = letterGroup.getAttribute('data-letter') || '';
+            visibleLetters[letter] = true;
+          }
+        }
+      });
+      
+      letterGroups.forEach(group => {
+        const letter = group.getAttribute('data-letter') || '';
+        group.style.display = visibleLetters[letter] ? '' : 'none';
+      });
+      
+      noResults.classList.toggle('d-none', visibleCount > 0);
+      
+      alphabetBtns.forEach(btn => {
+        const letter = btn.getAttribute('data-letter') || '';
+        btn.classList.toggle('disabled', !visibleLetters[letter]);
+      });
+    }
+    
+    searchInput.addEventListener('input', filterVolunteers);
+    areaFilter.addEventListener('change', filterVolunteers);
+    
+    filterVolunteers();
+  });
+</script>
+
+<style>
+  .volunteer-list {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .alphabet-nav {
+    position: sticky;
+    top: 20px;
+    z-index: 10;
+    background-color: #f8f9fa;
+    padding: 10px 0;
+    border-radius: 5px;
+  }
+  
+  .alphabet-btn {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+  
+  .alphabet-btn:hover, 
+  .alphabet-btn:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+  }
+  
+  .letter-header {
+    position: sticky;
+    top: 70px;
+    z-index: 5;
+    padding: 10px 15px;
+    background-color: #f8f9fa;
+  }
+  
+  .volunteer-group {
+    padding-top: 8px; /* Increased padding to provide more space */
+  }
+
+  .volunteer-item {
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+    position: relative; /* Ensure proper stacking context */
+    z-index: 1; /* Lower z-index than header */
+    margin-top: 2px; /* Add small margin to ensure no overlap */
+  }
+  
+  .volunteer-item:first-child {
+    margin-top: 5px; /* Add extra margin to the first item */
+  }
+  
+  .volunteer-item:hover {
+    background-color: #f8f9fa;
+    border-left-color: #4c7bd0;
+  }
+  
+  .volunteer-card {
+    border: none;
+    overflow: visible; /* Changed from hidden to prevent clipping */
+  }
+  
+  .area-tag {
+    display: inline-block;
+    position: relative;
+  }
+  
+  .volunteer-item a {
+    opacity: 0.8;
+    transition: all 0.2s ease;
+  }
+  
+  .volunteer-item:hover a {
+    opacity: 1;
+  }
+  
+  @media (max-width: 767px) {
+    .letter-header {
+      top: 60px;
+    }
+    
+    .volunteer-item {
+      padding: 12px !important;
+    }
+  }
+</style>
