@@ -1,0 +1,107 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import VolunteerList from '../components/VolunteerList.astro';
+import volunteersData from '../data/volunteers.json';
+import type { Volunteer } from '../types/volunteer';
+
+const volunteers: Volunteer[] = volunteersData;
+---
+
+<Layout title="Agradecimientos - FLISol Guayaquil 2025">
+  <Header slot="header" />
+  
+  <section class="bg-primary text-white py-100 pt-md-150 position-relative overflow-hidden" aria-labelledby="thanks-heading">
+    <!-- Decorative elements -->
+    <div class="position-absolute top-0 start-0 w-100 h-100 z-0">
+      <div class="position-absolute top-50 start-0 translate-middle-y">
+        <img src="/assets/images/nube-2.svg" alt="" class="opacity-10" width="250" height="150" aria-hidden="true">
+      </div>
+      <div class="position-absolute top-25 end-0 translate-middle-y">
+        <img src="/assets/images/nube-1.svg" alt="" class="opacity-10" width="250" height="150" aria-hidden="true">
+      </div>
+    </div>
+    
+    <div class="container position-relative z-1">
+      <div class="row justify-content-center text-center">
+        <div class="col-lg-8">
+          <h1 id="thanks-heading" class="display-3 fw-bold mb-4 px-3 me-md-2 aos-init aos-animate text-white" data-aos="fade-up">
+            ¡Gracias a nuestros increíbles voluntarios!
+          </h1>
+          <div class="mb-5 lead fs-3 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+            <p class="text-white">Ustedes son el corazón de FLISol Guayaquil. Su dedicación, pasión y compromiso han convertido este festival en una experiencia única y transformadora para toda la comunidad.</p>
+          </div>
+          <div class="text-center mb-5 aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+            <div class="d-inline-flex align-items-center justify-content-center bg-white text-primary rounded-pill py-3 px-5">
+              <i class="bi bi-heart-fill me-2 text-danger"></i>
+              <span class="fw-bold">Ustedes hacen posible el software libre</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="py-100 bg-light" aria-labelledby="volunteers-heading">
+    <div class="container">
+      <div class="row text-center mb-5">
+        <div class="col-lg-8 mx-auto">
+          <h2 id="volunteers-heading" class="h1 mb-4 text-primary aos-init aos-animate" data-aos="fade-up">
+            Nuestro equipo de voluntarios
+          </h2>
+          <p class="lead mb-0 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+            Estas personas extraordinarias han donado su tiempo, conocimientos y energía para compartir el poder del software libre con nuestra comunidad.
+          </p>
+        </div>
+      </div>
+      
+      <div class="volunteer-container px-md-4 aos-init aos-animate" data-aos="fade-up" data-aos-delay="150">
+        <VolunteerList volunteers={volunteers} />
+      </div>
+      
+      <div class="row mt-5">
+        <div class="col-lg-8 mx-auto text-center">
+          <div class="alert alert-primary py-4 d-flex align-items-center justify-content-center gap-3">
+            <i class="bi bi-info-circle-fill fs-4"></i>
+            <p class="mb-0">¿Quieres ser parte de nuestro equipo de voluntarios? <a href="#contacto" class="alert-link">Contáctanos</a> para unirte.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <Footer slot="footer" />
+</Layout>
+
+<style>
+  .py-100 {
+    padding-top: 120px;
+    padding-bottom: 100px;
+  }
+  
+  .pt-md-150 {
+    padding-top: 180px;
+  }
+  
+  @media (max-width: 768px) {
+    .py-100 {
+      padding-top: 100px;
+      padding-bottom: 70px;
+    }
+  }
+  
+  .opacity-10 {
+    opacity: 0.1;
+  }
+  
+  .volunteer-container {
+    margin: 0 -15px;
+  }
+  
+  @media (max-width: 768px) {
+    .volunteer-container {
+      margin: 0;
+    }
+  }
+</style>  
