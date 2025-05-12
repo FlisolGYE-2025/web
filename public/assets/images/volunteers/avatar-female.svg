@@ -1,0 +1,15 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="100" cy="100" r="100" fill="#FFE6F7"/>
+  <!-- Hair and Head -->
+  <path d="M68 73C68 55.3269 82.3269 41 100 41C117.673 41 132 55.3269 132 73C132 90.6731 117.673 105 100 105C82.3269 105 68 90.6731 68 73Z" fill="#D04C9E"/>
+  <!-- Long Hair -->
+  <path d="M60 40C60 40 45 80 60 120C60 120 55 90 68 73" fill="#D04C9E"/>
+  <path d="M140 40C140 40 155 80 140 120C140 120 145 90 132 73" fill="#D04C9E"/>
+  <path d="M100 112C66.863 112 40 138.863 40 172C40 172 63.7868 184 100 184C136.213 184 160 172 160 172C160 138.863 133.137 112 100 112Z" fill="#D04C9E"/>
+  <!-- Face -->
+  <ellipse cx="88" cy="70" rx="4" ry="6" fill="white"/>
+  <ellipse cx="112" cy="70" rx="4" ry="6" fill="white"/>
+  <circle cx="88" cy="70" r="2" fill="#333333"/>
+  <circle cx="112" cy="70" r="2" fill="#333333"/>
+  <path d="M95 85C95 85 100 88 105 85" stroke="#333333" stroke-width="2" stroke-linecap="round"/>
+</svg> 
