@@ -18,19 +18,19 @@
     "gender": "male"
   },
   {
-    "name": "Brayen Gavilanez ",
+    "name": "Brayen Gavilanes",
     "area": "Coordinador de Instalaciones",
     "linkedin": "",
     "gender": "male"
   },
   {
-    "name": "Ana Carrión",
+    "name": "Ana Belén Carrión Barbotó",
     "area": "Coordinadora de Ponentes",
     "linkedin": "",
     "gender": "female"
   },
   {
-    "name": "Daniela Garcia",
+    "name": "Daniela Stefanny Garcia Solórzano",
     "area": "Coordinadora de Ponentes",
     "linkedin": "",
     "gender": "female"
@@ -230,6 +230,18 @@
   {
     "name": "Michael Estrada",
     "area": "Coordinador de Instalaciones",
+    "linkedin": "",
+    "gender": "male"
+  },
+  {
+    "name": "Veriuska Oropeza",
+    "area": "Marketing",
+    "linkedin": "",
+    "gender": "female"
+  },
+  {
+    "name": "José Laica",
+    "area": "Logística",
     "linkedin": "",
     "gender": "male"
   }
