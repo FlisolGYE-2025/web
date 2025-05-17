@@ -1,55 +1,285 @@
 ---
-// Sponsors component for FLISol Guayaquil
+// Sponsors component for FLISol Guayaquil with categorized sponsor tiers
 const sponsors = [
-  {
-    name: "Mento",
-    logo: "mento_logo.webp",
-    alt: "Logo Mento",
-    link: "https://mentocreativo.com/",
-  },
   {
     name: "UCSG",
     logo: "ucsg_logo.webp",
     alt: "Logo UCSG",
     link: "https://www.ucsg.edu.ec/ing/",
+    category: "venue",
+    description: "Sede oficial del evento"
+  },
+  {
+    name: "Ondú Cloud",
+    logo: "logo-ondu-cloud.webp", // Placeholder, replace with actual logo
+    alt: "Logo Ondú Cloud",
+    link: "https://www.onducloud.com",
+    category: "gold",
+    description: "Patrocinador principal"
   },
   {
     name: "Musyana Store",
     logo: "musyana_store.webp",
     alt: "Logo Musyana Store",
     link: "https://musyanastore.com/",
+    category: "bronze",
+    description: "Colaborador del evento"
   },
+  {
+    name: "Mento",
+    logo: "mento_logo.webp",
+    alt: "Logo Mento",
+    link: "https://mentocreativo.com/",
+    category: "media",
+    description: "Difusión y cobertura"
+  }
 ];
+
+// Sort sponsors by category priority
+const categoryOrder = {
+  venue: 1,
+  gold: 2,
+  bronze: 3,
+  media: 4
+};
+
+const sortedSponsors = [...sponsors].sort((a, b) => 
+  categoryOrder[a.category] - categoryOrder[b.category]
+);
+
+// Group sponsors by category
+const venuePartners = sortedSponsors.filter(sponsor => sponsor.category === "venue");
+const goldSponsors = sortedSponsors.filter(sponsor => sponsor.category === "gold");
+const bronzeSponsors = sortedSponsors.filter(sponsor => sponsor.category === "bronze");
+const mediaPartners = sortedSponsors.filter(sponsor => sponsor.category === "media");
+
+// Category titles and descriptions
+const categories = {
+  venue: {
+    title: "Sede del Evento",
+    description: "Institución que acoge al FLISol Guayaquil 2025"
+  },
+  gold: {
+    title: "Patrocinadores Gold",
+    description: "Apoyo principal para hacer posible este evento"
+  },
+  bronze: {
+    title: "Patrocinadores Bronze",
+    description: "Colaboradores importantes de FLISol Guayaquil"
+  },
+  media: {
+    title: "Media Partners",
+    description: "Difusión y cobertura del evento"
+  }
+};
 ---
 
 <section id="sponsors" class="bg-secondary py-86 px-4">
-  <div class="container d-flex flex-column gap-4 align-items-center">
-    <h2 class="ds-xs-3 fw-bold text-primary text-100 my-auto">Sponsors</h2>
-    <ul
-      class="d-flex flex-wrap gap-2 align-items-center justify-content-center list-unstyled"
-      data-aos="fade-up"
-    >
-      {
-        sponsors.map((sponsor) => (
-          <li class="d-flex flex-column align-items-center">
-            <a
-              href={sponsor.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="hover-up"
-            >
-              <img
-                src={`/assets/images/sponsors/${sponsor.logo}`}
-                alt={sponsor.alt}
-                class="object-fit-contain"
-                width="200"
-                loading="lazy"
-              />
-            </a>
-            <p class="visually-hidden">{sponsor.name}</p>
-          </li>
-        ))
-      }
-    </ul>
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="h1 fw-bold text-primary mb-3" data-aos="fade-up">Sponsors</h2>
+      <p class="lead text-center mx-auto" style="max-width: 700px;" data-aos="fade-up" data-aos-delay="100">
+        Organizaciones que hacen posible FLISol Guayaquil 2025
+      </p>
+    </div>
+
+    <!-- Venue Partners -->
+    {venuePartners.length > 0 && (
+      <div class="sponsor-category mb-5" data-aos="fade-up" data-aos-delay="150">
+        <h3 class="h4 text-center text-primary mb-4">{categories.venue.title}</h3>
+        <p class="text-center mb-4">{categories.venue.description}</p>
+        <div class="d-flex justify-content-center">
+          {venuePartners.map((sponsor) => (
+            <div class="venue-partner text-center mx-4">
+              <a
+                href={sponsor.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="sponsor-link venue-link"
+                aria-label={`Visitar sitio web de ${sponsor.name}, ${sponsor.description}`}
+              >
+                <div class="sponsor-img-wrapper venue mb-3">
+                  <img
+                    src={`/assets/images/sponsors/${sponsor.logo}`}
+                    alt={sponsor.alt}
+                    class="img-fluid"
+                    width="280"
+                    loading="lazy"
+                  />
+                </div>
+              </a>
+            </div>
+          ))}
+        </div>
+      </div>
+    )}
+
+
+    <!-- Media Partners -->
+    {mediaPartners.length > 0 && (
+      <div class="sponsor-category" data-aos="fade-up" data-aos-delay="300">
+        <h3 class="h4 text-center text-primary mb-4">{categories.media.title}</h3>
+        <p class="text-center mb-4">{categories.media.description}</p>
+        <div class="d-flex flex-wrap justify-content-center">
+          {mediaPartners.map((sponsor) => (
+            <div class="media-partner text-center mx-4">
+              <a
+                href={sponsor.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="sponsor-link media-link"
+                aria-label={`Visitar sitio web de ${sponsor.name}, ${sponsor.description}`}
+              >
+                <div class="sponsor-img-wrapper media mb-3">
+                  <img
+                    src={`/assets/images/sponsors/${sponsor.logo}`}
+                    alt={sponsor.alt}
+                    class="img-fluid"
+                    width="180"
+                    loading="lazy"
+                  />
+                </div>
+              </a>
+            </div>
+          ))}
+        </div>
+      </div>
+    )}
+
+    <!-- Gold Sponsors -->
+    {goldSponsors.length > 0 && (
+      <div class="sponsor-category mb-5" data-aos="fade-up" data-aos-delay="200">
+        <h3 class="h4 text-center text-primary mb-4">{categories.gold.title}</h3>
+        <p class="text-center mb-4">{categories.gold.description}</p>
+        <div class="d-flex justify-content-center">
+          {goldSponsors.map((sponsor) => (
+            <div class="gold-sponsor text-center mx-4">
+              <a
+                href={sponsor.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="sponsor-link gold-link"
+                aria-label={`Visitar sitio web de ${sponsor.name}, ${sponsor.description}`}
+              >
+                <div class="sponsor-img-wrapper gold mb-3">
+                  <img
+                    src={`/assets/images/sponsors/${sponsor.logo}`}
+                    alt={sponsor.alt}
+                    class="img-fluid"
+                    width="250"
+                    loading="lazy"
+                  />
+                </div>
+              </a>
+            </div>
+          ))}
+        </div>
+      </div>
+    )}
+
+    <!-- Bronze Sponsors -->
+    {bronzeSponsors.length > 0 && (
+      <div class="sponsor-category mb-5" data-aos="fade-up" data-aos-delay="250">
+        <h3 class="h4 text-center text-primary mb-4">{categories.bronze.title}</h3>
+        <p class="text-center mb-4">{categories.bronze.description}</p>
+        <div class="d-flex flex-wrap justify-content-center">
+          {bronzeSponsors.map((sponsor) => (
+            <div class="bronze-sponsor text-center mx-4">
+              <a
+                href={sponsor.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="sponsor-link bronze-link"
+                aria-label={`Visitar sitio web de ${sponsor.name}, ${sponsor.description}`}
+              >
+                <div class="sponsor-img-wrapper bronze mb-3">
+                  <img
+                    src={`/assets/images/sponsors/${sponsor.logo}`}
+                    alt={sponsor.alt}
+                    class="img-fluid"
+                    width="200"
+                    loading="lazy"
+                  />
+                </div>
+              </a>
+            </div>
+          ))}
+        </div>
+      </div>
+    )}
+
+
   </div>
 </section>
+
+<style>
+  .sponsor-img-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+    margin: 0 auto;
+  }
+
+  .sponsor-img-wrapper.venue {
+    height: 180px;
+  }
+
+  .sponsor-img-wrapper.gold {
+    height: 160px;
+    border-radius: 8px;
+    padding: 15px;
+    background-color: rgba(255, 215, 0, 0.05);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+  }
+
+  .sponsor-img-wrapper.bronze {
+    height: 140px;
+    border-radius: 8px;
+    padding: 12px;
+    background-color: rgba(205, 127, 50, 0.05);
+    border: 1px solid rgba(205, 127, 50, 0.2);
+  }
+
+  .sponsor-img-wrapper.media {
+    height: 120px;
+    border-radius: 8px;
+    padding: 10px;
+  }
+
+  .sponsor-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: all 0.3s ease;
+  }
+
+  .sponsor-link:hover .sponsor-img-wrapper,
+  .sponsor-link:focus .sponsor-img-wrapper {
+    transform: translateY(-5px);
+  }
+
+  .sponsor-link:hover h4,
+  .sponsor-link:focus h4 {
+    color: #4c7bd0;
+  }
+
+  .sponsor-category {
+    padding-bottom: 2rem;
+  }
+
+  .sponsor-category:last-child {
+    border-bottom: none;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .sponsor-img-wrapper.venue,
+    .sponsor-img-wrapper.gold,
+    .sponsor-img-wrapper.bronze,
+    .sponsor-img-wrapper.media {
+      height: auto;
+      max-width: 100%;
+    }
+  }
+</style>
