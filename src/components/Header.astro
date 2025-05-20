@@ -26,35 +26,35 @@
           <li class="nav-item">
             <a
               class="nav-link fw-bold d-flex align-items-center text-white navLink"
-              href="#comunidades"
+              href="/#comunidades"
               >Comunidades</a
             >
           </li>
           <li class="nav-item">
             <a
               class="nav-link fw-bold d-flex align-items-center text-white navLink"
-              href="#inscripciones"
+              href="/#inscripciones"
               >Inscripciones</a
             >
           </li>
           <li class="nav-item">
             <a
               class="nav-link fw-bold d-flex align-items-center text-white navLink"
-              href="#installfest"
+              href="/#installfest"
               >InstallFest</a
             >
           </li>
           <li class="nav-item">
             <a
               class="nav-link fw-bold d-flex align-items-center text-white navLink"
-              href="#sponsors"
+              href="/#sponsors"
               >Sponsors</a
             >
           </li>
           <li class="nav-item">
             <a
               class="nav-link fw-bold d-flex align-items-center text-white navLink"
-              href="#contacto"
+              href="/#contacto"
               >Contacto</a
             >
           </li>
@@ -70,7 +70,7 @@
       <div class="d-flex gap-2 align-items-center">
         <a
           href="https://lu.ma/qq6m2ohc"
-          target="_blank" 
+          target="_blank"
           rel="noopener noreferrer"
           class="d-none d-lg-flex btn bg-white text-primary hover-up bg-transparent text-100 p-2 px-4"
           aria-label="Inscríbete al evento"
@@ -177,7 +177,7 @@
             <div class="mobile-cta mt-4">
               <a
                 href="https://lu.ma/qq6m2ohc"
-                target="_blank" 
+                target="_blank"
                 rel="noopener noreferrer"
                 class="btn bg-primary text-white w-100 mb-3 p-2 text-center"
                 aria-label="Inscríbete al evento desde el menú móvil"
@@ -197,7 +197,7 @@
   header {
     overflow-x: hidden;
   }
-  
+
   nav.navbar {
     margin: 0;
     padding-left: 0;
@@ -214,15 +214,15 @@
   document.addEventListener('DOMContentLoaded', () => {
     const burgerButtons = document.querySelectorAll('.burger-icon');
     const mobileMenu = document.getElementById('mobile-menu');
-    
+
     burgerButtons.forEach(button => {
       button.addEventListener('click', () => {
         const isExpanded = button.getAttribute('aria-expanded') === 'true';
-        
+
         burgerButtons.forEach(btn => {
           btn.setAttribute('aria-expanded', (!isExpanded).toString());
         });
-        
+
         if (mobileMenu) {
           mobileMenu.setAttribute('aria-hidden', isExpanded.toString());
           mobileMenu.classList.toggle('active', !isExpanded);
@@ -230,7 +230,7 @@
         }
       });
     });
-    
+
     // Close menu when clicking on a link
     const mobileLinks = document.querySelectorAll('#mobile-menu a');
     mobileLinks.forEach(link => {
@@ -238,7 +238,7 @@
         burgerButtons.forEach(btn => {
           btn.setAttribute('aria-expanded', 'false');
         });
-        
+
         if (mobileMenu) {
           mobileMenu.setAttribute('aria-hidden', 'true');
           mobileMenu.classList.remove('active');
@@ -247,4 +247,4 @@
       });
     });
   });
-</script> 
+</script>
