@@ -1,0 +1,290 @@
+---
+// Agenda component for FLISol Guayaquil with improved accessibility
+import agendaData from '../data/agenda.json';
+import type { Room } from '../types/agenda';
+
+const rooms: Room[] = agendaData;
+---
+
+<section id="agenda" class="bg-light py-86 px-4" aria-labelledby="agenda-heading">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 id="agenda-heading" class="h1 fw-bold text-primary mb-3" data-aos="fade-up">
+        Agenda del Evento
+      </h2>
+      <p class="lead text-center mx-auto" style="max-width: 700px;" data-aos="fade-up" data-aos-delay="100">
+        Descubre todas las actividades, charlas y talleres que tenemos preparados para ti
+      </p>
+    </div>
+
+    <div class="agenda-container" data-aos="fade-up" data-aos-delay="150">
+      <!-- Tab Navigation -->
+      <div class="nav-tabs-container mb-4">
+        <ul class="nav nav-tabs justify-content-center border-0" id="agendaTabs" role="tablist">
+          {rooms.map((room, index) => (
+            <li class="nav-item" role="presentation">
+              <button
+                class={`nav-link ${index === 0 ? 'active' : ''} px-4 py-3 border-0 rounded-pill mx-1 mb-2`}
+                id={`${room.id}-tab`}
+                data-bs-toggle="tab"
+                data-bs-target={`#${room.id}`}
+                type="button"
+                role="tab"
+                aria-controls={room.id}
+                aria-selected={index === 0 ? 'true' : 'false'}
+              >
+                <i class={`${room.icon} me-2`} aria-hidden="true"></i>
+                {room.name}
+                {room.capacity && <small class="d-block text-muted">({room.capacity})</small>}
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Tab Content -->
+      <div class="tab-content" id="agendaTabsContent">
+        {rooms.map((room, index) => (
+          <div
+            class={`tab-pane fade ${index === 0 ? 'show active' : ''}`}
+            id={room.id}
+            role="tabpanel"
+            aria-labelledby={`${room.id}-tab`}
+          >
+            <div class="card shadow-sm border-0">
+              <div class="card-header bg-primary text-white py-3">
+                <div class="d-flex align-items-center justify-content-center">
+                  <i class={`${room.icon} me-2 fs-4`} aria-hidden="true"></i>
+                  <h3 class="mb-0 fs-4">{room.name}</h3>
+                  {room.capacity && <span class="badge bg-light text-primary ms-3">{room.capacity}</span>}
+                </div>
+              </div>
+              <div class="card-body p-0">
+                <div class="agenda-timeline">
+                  {room.activities.map((activity) => (
+                    <div class={`agenda-item ${activity.type}`}>
+                      <div class="time-badge">
+                        <span class="time-text">{activity.time}</span>
+                      </div>
+                      <div class="activity-content">
+                        <div class={`activity-indicator ${activity.type}`}></div>
+                        <div class="activity-details">
+                          <h4 class="activity-title">{activity.title}</h4>
+                          <span class={`activity-type-badge ${activity.type}`}>
+                            {activity.type === 'talk' && 'Charla'}
+                            {activity.type === 'workshop' && 'Taller'}
+                            {activity.type === 'event' && 'Evento'}
+                            {activity.type === 'break' && 'Descanso'}
+                            {activity.type === 'installfest' && 'InstallFest'}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Download Schedule CTA -->
+    <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="200">
+      <div class="alert alert-info d-inline-flex align-items-center gap-3 py-3 px-4 border-0 rounded-3">
+        <i class="bi bi-calendar-event fs-4 text-primary"></i>
+        <span>¿Quieres tener la agenda siempre contigo? Guarda esta página en favoritos</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .agenda-container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .nav-tabs .nav-link {
+    background-color: white;
+    border: 2px solid #e9ecef;
+    color: #6c757d;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .nav-tabs .nav-link:hover {
+    background-color: #f8f9fa;
+    border-color: #4c7bd0;
+    color: #4c7bd0;
+    transform: translateY(-2px);
+  }
+
+  .nav-tabs .nav-link.active {
+    background-color: #4c7bd0;
+    border-color: #4c7bd0;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(76, 123, 208, 0.3);
+  }
+
+  .agenda-timeline {
+    position: relative;
+  }
+
+  .agenda-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 1.5rem;
+    border-bottom: 1px solid #f0f0f0;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .agenda-item:hover {
+    background-color: #f8f9fa;
+  }
+
+  .agenda-item:last-child {
+    border-bottom: none;
+  }
+
+  .time-badge {
+    flex-shrink: 0;
+    width: 120px;
+    margin-right: 1.5rem;
+  }
+
+  .time-text {
+    display: inline-block;
+    background-color: #f8f9fa;
+    color: #495057;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.875rem;
+    border: 1px solid #e9ecef;
+  }
+
+  .activity-content {
+    display: flex;
+    align-items: flex-start;
+    flex-grow: 1;
+    gap: 1rem;
+  }
+
+  .activity-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-top: 0.25rem;
+    flex-shrink: 0;
+  }
+
+  .activity-indicator.talk {
+    background-color: #4c7bd0;
+  }
+
+  .activity-indicator.event {
+    background-color: #28a745;
+  }
+
+  .activity-indicator.break {
+    background-color: #ffc107;
+  }
+
+  .activity-indicator.installfest {
+    background-color: #dc3545;
+  }
+
+  .activity-indicator.workshop {
+    background-color: #6f42c1;
+  }
+
+  .activity-details {
+    flex-grow: 1;
+  }
+
+  .activity-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+  }
+
+  .activity-type-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .activity-type-badge.talk {
+    background-color: rgba(76, 123, 208, 0.1);
+    color: #4c7bd0;
+  }
+
+  .activity-type-badge.event {
+    background-color: rgba(40, 167, 69, 0.1);
+    color: #28a745;
+  }
+
+  .activity-type-badge.break {
+    background-color: rgba(255, 193, 7, 0.1);
+    color: #ffc107;
+  }
+
+  .activity-type-badge.installfest {
+    background-color: rgba(220, 53, 69, 0.1);
+    color: #dc3545;
+  }
+
+  .activity-type-badge.workshop {
+    background-color: rgba(111, 66, 193, 0.1);
+    color: #6f42c1;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .nav-tabs .nav-link {
+      font-size: 0.875rem;
+      padding: 0.5rem 1rem !important;
+    }
+
+    .agenda-item {
+      flex-direction: column;
+      padding: 1rem;
+    }
+
+    .time-badge {
+      width: 100%;
+      margin-right: 0;
+      margin-bottom: 0.75rem;
+    }
+
+    .time-text {
+      display: block;
+      text-align: center;
+      width: 100%;
+    }
+
+    .activity-content {
+      gap: 0.75rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .nav-tabs {
+      flex-direction: column;
+    }
+
+    .nav-tabs .nav-link {
+      margin: 0.25rem 0 !important;
+      text-align: center;
+    }
+  }
+</style> 

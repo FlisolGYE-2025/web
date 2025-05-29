@@ -1,0 +1,102 @@
+[
+  {
+    "id": "auditorio",
+    "name": "Auditorio",
+    "capacity": "",
+    "icon": "bi-megaphone",
+    "activities": [
+      { "time": "9:00-9:40", "title": "Registro y Bienvenida", "type": "event" },
+      { "time": "9:40-10:10", "title": "Ceremonia de Apertura", "type": "event" },
+      { "time": "10:10-10:20", "title": "Coffee break", "type": "break" },
+      { "time": "10:20-11:00", "title": "CIENCIA ABIERTA Y REPRODUCIBILIDAD: ENTRE LA PRÁCTICA CIENTÍFICA Y EL ENTRENAMIENTO DE PARES", "type": "talk" },
+      { "time": "11:00-11:40", "title": "Evolución de la replicación en PostgreSQL", "type": "talk" },
+      { "time": "11:40-12:20", "title": "Charla Ondu Cloud", "type": "talk" },
+      { "time": "12:20-12:35", "title": "Networking", "type": "break" },
+      { "time": "12:35-13:00", "title": "Almuerzo", "type": "break" },
+      { "time": "13:40-14:20", "title": "Implementación de Seafile como gestor de archivos utilizando Docker", "type": "talk" },
+      { "time": "14:20-15:00", "title": "Privacidad y Software Libre, Para el taller: Cómo ser mujer STEAM y no morir en el intento", "type": "talk" },
+      { "time": "15:00-15:40", "title": "Explorando opciones como Supabase: una alternativa abierta a Firebase", "type": "talk" },
+      { "time": "15:40-16:20", "title": "Live Coding y Programación Creativa: Sonic Pi, p5.js y los límites éticos de la IA", "type": "talk" },
+      { "time": "16:20-17:00", "title": "Flutter y la IA: De Ibarra al Mundo", "type": "talk" },
+      { "time": "17:00-17:15", "title": "Ceremonia de cierre", "type": "event" }
+    ]
+  },
+  {
+    "id": "sala-a",
+    "name": "Sala A",
+    "capacity": "",
+    "icon": "bi-laptop",
+    "activities": [
+      { "time": "9:00-9:40", "title": "Registro y Bienvenida", "type": "event" },
+      { "time": "10:10-10:20", "title": "Coffee break", "type": "break" },
+      { "time": "10:20-11:00", "title": "Ingeniería inversa de malware con Ghidra", "type": "workshop" },
+      { "time": "11:00-11:40", "title": "Odoo (Localizacion 17 Ecuador, Flujo De Compra-Venta-Inventario)", "type": "workshop" },
+      { "time": "11:40-12:20", "title": "La protección de datos personales para el uso ético del software libre.", "type": "workshop" },
+      { "time": "12:20-12:35", "title": "Networking", "type": "break" },
+      { "time": "12:35-13:40", "title": "Almuerzo", "type": "break" },
+      { "time": "13:40-14:20", "title": "Usa tu propio asistente de código con inteligencia artificial.", "type": "workshop" },
+      { "time": "14:20-15:00", "title": "Automatización CI/CD con Git: Comparativa entre plataformas libres y propietarias", "type": "workshop" },
+      { "time": "15:00-15:40", "title": "Cómo usar LangGraph para construir arquitecturas escalables de agentes de IA", "type": "workshop" },
+      { "time": "15:40-16:20", "title": "Configura un entorno de trabajo blazingly fast con Neovim", "type": "workshop" },
+      { "time": "17:00-17:15", "title": "Ceremonia de cierre", "type": "event" }
+    ]
+  },
+  {
+    "id": "sala-b",
+    "name": "Sala B",
+    "capacity": "",
+    "icon": "bi-people",
+    "activities": [
+      { "time": "9:00-9:40", "title": "Registro y Bienvenida", "type": "event" },
+      { "time": "10:10-10:20", "title": "Coffee break", "type": "break" },
+      { "time": "10:20-11:00", "title": "Datos personales e inteligencia artificial", "type": "talk" },
+      { "time": "11:00-11:40", "title": "Wahay", "type": "talk" },
+      { "time": "11:40-12:20", "title": "Machine Learning en Datos Encriptados: Introducción a FHE usando Concrete ML", "type": "talk" },
+      { "time": "12:20-12:35", "title": "Networking", "type": "break" },
+      { "time": "12:35-13:40", "title": "Almuerzo", "type": "break" },
+      { "time": "13:40-14:20", "title": "Generación de firmas en documentos públicos mediante software libre para optimizar procesos contractuales", "type": "talk" },
+      { "time": "14:20-15:00", "title": "Tú base de datos como fuente de verdad", "type": "talk" },
+      { "time": "15:00-15:40", "title": "Imagro", "type": "talk" },
+      { "time": "15:40-16:20", "title": "Virtus", "type": "talk" },
+      { "time": "17:00-17:15", "title": "Ceremonia de cierre", "type": "event" }
+    ]
+  },
+  {
+    "id": "sala-c",
+    "name": "Sala C",
+    "capacity": "",
+    "icon": "bi-terminal",
+    "activities": [
+      { "time": "9:00-9:40", "title": "Registro y Bienvenida", "type": "event" },
+      { "time": "10:10-10:20", "title": "Coffee break", "type": "break" },
+      { "time": "10:20-11:00", "title": "Bailando con Hilos y Procesos: Concurrencia, Paralelismo en .NET (Caso práctico para descargar facturas)", "type": "talk" },
+      { "time": "11:00-11:40", "title": "Ecosistema web3: orígenes, historia, evolución y visión a futuro", "type": "talk" },
+      { "time": "11:40-12:20", "title": "Descentralización de las comunicaciones usando la mixnet de Nym", "type": "talk" },
+      { "time": "12:20-12:35", "title": "Networking", "type": "break" },
+      { "time": "12:35-13:40", "title": "Almuerzo", "type": "break" },
+      { "time": "13:40-14:20", "title": "Lambda y Serverless Framework: Transformando el Desarrollo en la Nube", "type": "talk" },
+      { "time": "14:20-15:00", "title": "Bitcoin y las Tecnologías que lo Hacen Posible: Un Viaje por el Futuro del Dinero", "type": "talk" },
+      { "time": "17:00-17:15", "title": "Ceremonia de cierre", "type": "event" }
+    ]
+  },
+  {
+    "id": "terraza",
+    "name": "Terraza (lado A)",
+    "capacity": "",
+    "icon": "bi-tools",
+    "activities": [
+      { "time": "9:00-9:40", "title": "Registro y Bienvenida", "type": "event" },
+      { "time": "10:10-10:20", "title": "Coffee break", "type": "break" },
+      { "time": "10:20-11:00", "title": "InstallFest", "type": "installfest" },
+      { "time": "11:00-11:40", "title": "InstallFest", "type": "installfest" },
+      { "time": "11:40-12:20", "title": "InstallFest", "type": "installfest" },
+      { "time": "12:20-12:35", "title": "Networking", "type": "break" },
+      { "time": "12:35-13:40", "title": "Almuerzo", "type": "break" },
+      { "time": "13:40-14:20", "title": "InstallFest", "type": "installfest" },
+      { "time": "14:20-15:00", "title": "InstallFest", "type": "installfest" },
+      { "time": "15:00-15:40", "title": "InstallFest", "type": "installfest" },
+      { "time": "15:40-16:20", "title": "InstallFest", "type": "installfest" },
+      { "time": "17:00-17:15", "title": "Ceremonia de cierre", "type": "event" }
+    ]
+  }
+] 
