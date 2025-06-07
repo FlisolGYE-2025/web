@@ -1,0 +1,317 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+// Datos de ingresos y gastos
+const ingresos = [
+  { concepto: "Musyana Store", monto: 40 },
+  { concepto: "El Angel del Futbol", monto: 20 },
+  { concepto: "Ecuador In Tech", monto: 35 },
+  { concepto: "Anon", monto: 25 },
+  { concepto: "Onducloud", monto: 250 },
+  { concepto: "PizzaDAO", monto: 100 },
+  { concepto: "PyLadies Ec", monto: 50 }
+];
+
+const gastos = [
+  { concepto: "Placa reconocimiento Venue Partner", monto: 30.00 },
+  { concepto: "Rollup banner oficial + gafetes", monto: 172.00 },
+  { concepto: "Flash drives 64GB (x5)", monto: 27.72 },
+  { concepto: "Dominio y servicio de correos (flisolguayaquil.org)", monto: 35.00 },
+  { concepto: "Plan mensual Mailer Lite para mailing", monto: 25.00 },
+  { concepto: "Pizzas", monto: 100.00 },
+  { concepto: "Transportación (taxi para mover rollup, bebidas y piqueos al evento)", monto: 20.00 },
+  { concepto: "Cobertura (video oficial del evento)", monto: 50.00 },
+  { concepto: "Cordones de credenciales del evento", monto: 50.00 },
+  { concepto: "Lona alterna para rollup banner", monto: 8.00 },
+  { concepto: "Medalla reconocimiento invitado especial", monto: 15.00 },
+  { concepto: "Stickers", monto: 13.00 },
+  { concepto: "Botellones de agua, pacas de agua x3, vasos", monto: 13.00 },
+  { concepto: "Pauta", monto: 98.17 }
+];
+
+const totalIngresos = ingresos.reduce((sum, item) => sum + item.monto, 0);
+const totalGastos = gastos.reduce((sum, item) => sum + item.monto, 0);
+const balance = totalIngresos - totalGastos;
+---
+
+<Layout title="Transparencia Financiera - FLISol Guayaquil 2025">
+  <Header slot="header" />
+  
+  <section class="bg-primary text-white py-100 pt-md-150 position-relative overflow-hidden" aria-labelledby="transparency-heading">
+    <!-- Decorative elements -->
+    <div class="position-absolute top-0 start-0 w-100 h-100 z-0">
+      <div class="position-absolute top-50 start-0 translate-middle-y">
+        <img src="/assets/images/nube-2.svg" alt="" class="opacity-10" width="250" height="150" aria-hidden="true">
+      </div>
+      <div class="position-absolute top-25 end-0 translate-middle-y">
+        <img src="/assets/images/nube-1.svg" alt="" class="opacity-10" width="250" height="150" aria-hidden="true">
+      </div>
+    </div>
+    
+    <div class="container position-relative z-1">
+      <div class="row justify-content-center text-center">
+        <div class="col-lg-8">
+          <h1 id="transparency-heading" class="display-3 fw-bold mb-4 px-3 me-md-2 aos-init aos-animate text-white" data-aos="fade-up">
+            Transparencia Financiera
+          </h1>
+          <div class="mb-5 lead fs-3 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+            <p class="text-white">Conoce cómo se han gestionado los recursos de FLISol Guayaquil 2025. La transparencia es fundamental para nuestra comunidad.</p>
+          </div>
+          <div class="text-center mb-5 aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+            <div class="d-inline-flex align-items-center justify-content-center bg-white text-primary rounded-pill py-3 px-5">
+              <i class="bi bi-shield-check me-2 text-success"></i>
+              <span class="fw-bold">Compromiso con la transparencia</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-100 bg-light" aria-labelledby="financial-summary-heading">
+    <div class="container">
+      <!-- Resumen Ejecutivo -->
+      <div class="row mb-5">
+        <div class="col-12">
+          <h2 id="financial-summary-heading" class="h1 text-center text-primary mb-5 aos-init aos-animate" data-aos="fade-up">
+            Resumen Financiero
+          </h2>
+        </div>
+      </div>
+
+      <div class="row g-4 mb-5">
+        <div class="col-md-4">
+          <div class="card border-0 shadow-sm h-100 text-center aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+            <div class="card-body p-4">
+              <div class="text-success mb-3">
+                <i class="bi bi-arrow-up-circle-fill fs-1"></i>
+              </div>
+              <h3 class="h4 text-success">Total Ingresos</h3>
+              <p class="display-6 fw-bold text-success mb-0">${totalIngresos.toFixed(2)}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card border-0 shadow-sm h-100 text-center aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+            <div class="card-body p-4">
+              <div class="text-danger mb-3">
+                <i class="bi bi-arrow-down-circle-fill fs-1"></i>
+              </div>
+              <h3 class="h4 text-danger">Total Gastos</h3>
+              <p class="display-6 fw-bold text-danger mb-0">${totalGastos.toFixed(2)}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card border-0 shadow-sm h-100 text-center aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
+            <div class="card-body p-4">
+              <div class={`${balance >= 0 ? 'text-success' : 'text-warning'} mb-3`}>
+                <i class={`bi ${balance >= 0 ? 'bi-check-circle-fill' : 'bi-exclamation-triangle-fill'} fs-1`}></i>
+              </div>
+              <h3 class={`h4 ${balance >= 0 ? 'text-success' : 'text-warning'}`}>Balance</h3>
+              <p class={`display-6 fw-bold ${balance >= 0 ? 'text-success' : 'text-warning'} mb-0`}>
+                {balance >= 0 ? '+' : ''}${balance.toFixed(2)}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tabla de Ingresos -->
+      <div class="row mb-5">
+        <div class="col-lg-6">
+          <div class="card border-0 shadow-sm aos-init aos-animate" data-aos="fade-up" data-aos-delay="400">
+            <div class="card-header bg-success text-white py-3">
+              <h3 class="h5 mb-0 d-flex align-items-center">
+                <i class="bi bi-plus-circle me-2"></i>
+                Ingresos por Patrocinios
+              </h3>
+            </div>
+            <div class="card-body p-0">
+              <div class="table-responsive">
+                <table class="table table-hover mb-0">
+                  <thead class="table-light">
+                    <tr>
+                      <th scope="col" class="border-0 py-3 ps-4">Patrocinador</th>
+                      <th scope="col" class="border-0 py-3 text-end pe-4">Monto</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {ingresos.map((ingreso) => (
+                      <tr>
+                        <td class="py-3 ps-4">{ingreso.concepto}</td>
+                        <td class="py-3 text-end pe-4 fw-semibold text-success">${ingreso.monto.toFixed(2)}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                  <tfoot class="table-light">
+                    <tr>
+                      <th scope="row" class="py-3 ps-4 fw-bold">Total Ingresos</th>
+                      <th class="py-3 text-end pe-4 fw-bold text-success">${totalIngresos.toFixed(2)}</th>
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tabla de Gastos -->
+        <div class="col-lg-6">
+          <div class="card border-0 shadow-sm aos-init aos-animate" data-aos="fade-up" data-aos-delay="500">
+            <div class="card-header bg-danger text-white py-3">
+              <h3 class="h5 mb-0 d-flex align-items-center">
+                <i class="bi bi-dash-circle me-2"></i>
+                Gastos del Evento
+              </h3>
+            </div>
+            <div class="card-body p-0">
+              <div class="table-responsive">
+                <table class="table table-hover mb-0">
+                  <thead class="table-light">
+                    <tr>
+                      <th scope="col" class="border-0 py-3 ps-4">Concepto</th>
+                      <th scope="col" class="border-0 py-3 text-end pe-4">Monto</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {gastos.map((gasto) => (
+                      <tr>
+                        <td class="py-3 ps-4">{gasto.concepto}</td>
+                        <td class="py-3 text-end pe-4 fw-semibold text-danger">${gasto.monto.toFixed(2)}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                  <tfoot class="table-light">
+                    <tr>
+                      <th scope="row" class="py-3 ps-4 fw-bold">Total Gastos</th>
+                      <th class="py-3 text-end pe-4 fw-bold text-danger">${totalGastos.toFixed(2)}</th>
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Notas adicionales -->
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <div class="alert alert-info py-4 aos-init aos-animate" data-aos="fade-up" data-aos-delay="600">
+            <div class="d-flex align-items-start">
+              <i class="bi bi-info-circle-fill fs-4 me-3 text-primary"></i>
+              <div>
+                <h4 class="alert-heading h5">Sobre nuestras finanzas</h4>
+                <p class="mb-2">Todos los fondos recibidos se destinaron exclusivamente a gastos relacionados con el evento FLISol Guayaquil 2025.</p>
+                <p class="mb-2">Los patrocinios recibidos nos permitieron cubrir la mayoría de los gastos operativos del evento.</p>
+                <p class="mb-0">Cualquier déficit fue cubierto por los organizadores para garantizar la realización del evento.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Categorías de gastos -->
+      <div class="row mt-5">
+        <div class="col-12">
+          <h3 class="h2 text-center text-primary mb-4 aos-init aos-animate" data-aos="fade-up">
+            Distribución de Gastos por Categoría
+          </h3>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-3">
+          <div class="text-center">
+            <div class="mb-3">
+              <i class="bi bi-megaphone fs-1 text-primary"></i>
+            </div>
+            <h4 class="h5">Marketing y Promoción</h4>
+            <p class="fw-bold text-primary">$333.17</p>
+            <small class="text-muted">Rollup + gafetes, cordones, stickers, pauta</small>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="text-center">
+            <div class="mb-3">
+              <i class="bi bi-cup-straw fs-1 text-primary"></i>
+            </div>
+            <h4 class="h5">Alimentación</h4>
+            <p class="fw-bold text-primary">$113.00</p>
+            <small class="text-muted">Pizzas y bebidas</small>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="text-center">
+            <div class="mb-3">
+              <i class="bi bi-gear fs-1 text-primary"></i>
+            </div>
+            <h4 class="h5">Infraestructura y Logística</h4>
+            <p class="fw-bold text-primary">$165.72</p>
+            <small class="text-muted">Dominio, mailing, USBs, transporte, cobertura, lona</small>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="text-center">
+            <div class="mb-3">
+              <i class="bi bi-gift fs-1 text-primary"></i>
+            </div>
+            <h4 class="h5">Reconocimientos</h4>
+            <p class="fw-bold text-primary">$45.00</p>
+            <small class="text-muted">Placa, medalla</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <Footer slot="footer" />
+</Layout>
+
+<style>
+  .py-100 {
+    padding-top: 120px;
+    padding-bottom: 100px;
+  }
+  
+  .pt-md-150 {
+    padding-top: 180px;
+  }
+  
+  @media (max-width: 768px) {
+    .py-100 {
+      padding-top: 100px;
+      padding-bottom: 70px;
+    }
+  }
+  
+  .opacity-10 {
+    opacity: 0.1;
+  }
+
+  .table th, .table td {
+    vertical-align: middle;
+  }
+
+  .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15) !important;
+  }
+
+  .display-6 {
+    font-size: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .display-6 {
+      font-size: 1.5rem;
+    }
+  }
+</style> 
