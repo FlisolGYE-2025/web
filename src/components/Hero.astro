@@ -42,15 +42,15 @@ import ButtonLink from "./ui/ButtonLink.astro";
     <picture>
       <source
         media="(min-width: 768px)"
-        srcset="/assets/images/logo_full_white.webp"
+        srcset="/assets/images/flisol_logo_original_white.webp"
       />
       <source
         media="(max-width: 767px)"
-        srcset="/assets/images/logo_full_white.webp"
+        srcset="/assets/images/flisol_logo_original_white.webp"
       />
       <img
-        src="/assets/images/logo_full_white.webp"
-        alt="FLISol Guayaquil 2025 - Festival Latinoamericano de Instalación de Software Libre"
+        src="/assets/images/flisol_logo_original_white.webp"
+        alt="FLISol Guayaquil 2026 - Festival Latinoamericano de Instalación de Software Libre"
         class="logo-main w-auto mx-auto px-4"
         width="650"
         height="auto"
@@ -62,7 +62,7 @@ import ButtonLink from "./ui/ButtonLink.astro";
         href="#inscripciones"
         label="Inscríbete"
         class="bg-white-keep"
-        ariaLabel="Inscríbete en FLISol Guayaquil 2025"
+        ariaLabel="Inscríbete en FLISol Guayaquil 2026"
       />
     </div>
   </div>
@@ -94,6 +94,8 @@ import ButtonLink from "./ui/ButtonLink.astro";
     max-width: 100%;
     max-height: 250px;
     object-fit: contain;
+    /* Logo art is ~same blue as bg-primary (#4c7bd0); shadow separates it from the hero */
+    filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 0.8));
   }
 
   .visually-hidden {
