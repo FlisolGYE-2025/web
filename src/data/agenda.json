@@ -1,47 +1,55 @@
 [
   {
-    "id": "auditorio",
-    "name": "Auditorio",
+    "id": "aula-magna",
+    "name": "Aula Magna",
     "capacity": "",
     "icon": "bi-megaphone",
     "activities": [
-      { "time": "9:00-9:40", "title": "Muy pronto", "type": "event" }
+      { "time": "08:30", "title": "Registro y Bienvenida", "type": "event" },
+      { "time": "09:00", "title": "Ceremonia de Apertura", "type": "event" },
+      { "time": "10:00", "title": "Open Source: construido por nadie... usado por todos – Verónica Cobos", "type": "talk" },
+      { "time": "10:10", "title": "Cómo empezar en Linux: Truncando mitos y la otra cara de la moneda – Carlos Vaca", "type": "talk" },
+      { "time": "10:20", "title": "Educación y Preservación: yt-dlp como la herramienta de descarga multimedia por excelencia – Victor Valverde", "type": "talk" },
+      { "time": "10:30", "title": "Ondu Cloud", "type": "talk" },
+      { "time": "13:00", "title": "Almuerzo", "type": "break" },
+      { "time": "15:00", "title": "IA y Patrimonio: Creando Galerías 3D – Jean Correa", "type": "workshop" },
+      { "time": "16:00", "title": "El papel de la IA en el Arte: composición musical en directo con Opencode – Juan Isidro Mejía", "type": "workshop" },
+      { "time": "17:00", "title": "Cierre del Evento", "type": "event" }
     ]
   },
   {
-    "id": "sala-a",
-    "name": "Sala A",
+    "id": "salon-102",
+    "name": "Salón 102",
     "capacity": "",
     "icon": "bi-laptop",
     "activities": [
-      { "time": "9:00-9:40", "title": "Muy pronto", "type": "event" }
+      { "time": "10:00", "title": "Privacidad Financiera con Actual Budget: Hostea tu propia app de finanzas – Ken Luzuriaga", "type": "talk" },
+      { "time": "11:40", "title": "Centella By Sinergia", "type": "talk" },
+      { "time": "12:20", "title": "Computer Vision Open Source: Mejorando YOLO con SAHI – Josue Malla", "type": "talk" },
+      { "time": "14:00", "title": "Democratizando la Automatización Industrial: Arquitecturas SCADA y HMI Open Source con ESP32 – Fernando Vélez", "type": "talk" }
     ]
   },
   {
-    "id": "sala-b",
-    "name": "Sala B",
+    "id": "salon-103",
+    "name": "Salón 103",
     "capacity": "",
     "icon": "bi-people",
     "activities": [
-      { "time": "9:00-9:40", "title": "Muy pronto", "type": "event" }
+      { "time": "11:00", "title": "Cómo automatizar un negocio en Ecuador usando software libre (ERP + SRI + datos en tiempo real) – Jonathan Cruz", "type": "talk" },
+      { "time": "11:40", "title": "Deep Agents con Skills: Construyendo el futuro de la IA agéntica con LangChain, AG-UI y CopilotKit – Willy Joao Mateo Espinoza", "type": "talk" },
+      { "time": "12:20", "title": "Viendo lo invisible: IA y Visión Espectral en la industria alimentaria – Michael Estrada", "type": "talk" },
+      { "time": "14:00", "title": "Que funcione no significa que sea confiable: ciberseguridad y gobernanza asistidas por IA – Alan Bajaña & Joel Choez", "type": "talk" }
     ]
   },
   {
-    "id": "sala-c",
-    "name": "Sala C",
-    "capacity": "",
-    "icon": "bi-terminal",
-    "activities": [
-      { "time": "9:00-9:40", "title": "Muy pronto", "type": "event" }
-    ]
-  },
-  {
-    "id": "terraza",
-    "name": "Terraza (lado A)",
+    "id": "salon-301",
+    "name": "Salón 301",
     "capacity": "",
     "icon": "bi-tools",
     "activities": [
-      { "time": "9:00-9:40", "title": "Muy pronto", "type": "event" }
+      { "time": "11:00", "title": "Design Thinking y Hardware Libre: crear soluciones tecnológicas desde la comunidad – Gissella Trujillo & Jefferson Ruiz Sánchez", "type": "workshop" },
+      { "time": "12:00", "title": "Diseña y simula tu robot desde cero: del modelo 3D al movimiento funcional – Daniel Ullauri Torres", "type": "workshop" },
+      { "time": "14:00", "title": "Odoo mas OpenClaw – Leonardo Gómez", "type": "workshop" }
     ]
   }
-] 
+]
