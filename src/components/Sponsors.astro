@@ -10,6 +10,14 @@ const sponsors = [
     description: "Sede oficial del evento"
   },
   {
+    name: "Ondú Cloud",
+    logo: "logo-ondu-cloud.webp",
+    alt: "Logo Ondú Cloud",
+    link: "https://www.onducloud.com/",
+    category: "root",
+    description: "Patrocinador ROOT"
+  },
+  {
     name: "Conder Coders",
     logo: "condorcoders.webp",
     alt: "Logo Conder Coders",
@@ -19,7 +27,7 @@ const sponsors = [
   },
   {
     name: "Sinergiass",
-    logo: "logo indigo mist.png",
+    logo: "sinergiass.png",
     alt: "Logo Sinergiass",
     link: "#",
     category: "gold",
@@ -30,9 +38,10 @@ const sponsors = [
 // Sort sponsors by category priority
 const categoryOrder = {
   venue: 1,
-  gold: 2,
-  bronze: 3,
-  media: 4
+  root: 2,
+  gold: 3,
+  bronze: 4,
+  media: 5
 };
 
 const sortedSponsors = [...sponsors].sort((a, b) => 
@@ -41,6 +50,7 @@ const sortedSponsors = [...sponsors].sort((a, b) =>
 
 // Group sponsors by category
 const venuePartners = sortedSponsors.filter(sponsor => sponsor.category === "venue");
+const rootSponsors = sortedSponsors.filter(sponsor => sponsor.category === "root");
 const goldSponsors = sortedSponsors.filter(sponsor => sponsor.category === "gold");
 const bronzeSponsors = sortedSponsors.filter(sponsor => sponsor.category === "bronze");
 const mediaPartners = sortedSponsors.filter(sponsor => sponsor.category === "media");
@@ -50,6 +60,10 @@ const categories = {
   venue: {
     title: "Sede del Evento",
     description: "Institución que acoge al FLISol Guayaquil 2026"
+  },
+  root: {
+    title: "Patrocinadores ROOT",
+    description: "Apoyo estratégico para FLISol Guayaquil 2026"
   },
   gold: {
     title: "Patrocinadores SUDO",
@@ -128,6 +142,37 @@ const categories = {
                     alt={sponsor.alt}
                     class="img-fluid"
                     width="180"
+                    loading="lazy"
+                  />
+                </div>
+              </a>
+            </div>
+          ))}
+        </div>
+      </div>
+    )}
+
+    <!-- Root Sponsors -->
+    {rootSponsors.length > 0 && (
+      <div class="sponsor-category mb-5" data-aos="fade-up" data-aos-delay="175">
+        <h3 class="h4 text-center text-primary mb-4">{categories.root.title}</h3>
+        <p class="text-center mb-4">{categories.root.description}</p>
+        <div class="d-flex justify-content-center">
+          {rootSponsors.map((sponsor) => (
+            <div class="root-sponsor text-center mx-4">
+              <a
+                href={sponsor.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="sponsor-link root-link"
+                aria-label={`Visitar sitio web de ${sponsor.name}, ${sponsor.description}`}
+              >
+                <div class="sponsor-img-wrapper root mb-3">
+                  <img
+                    src={`/assets/images/sponsors/${sponsor.logo}`}
+                    alt={sponsor.alt}
+                    class="img-fluid"
+                    width="280"
                     loading="lazy"
                   />
                 </div>
@@ -217,6 +262,14 @@ const categories = {
     height: 180px;
   }
 
+  .sponsor-img-wrapper.root {
+    height: 170px;
+    border-radius: 8px;
+    padding: 15px;
+    background-color: rgba(76, 123, 208, 0.05);
+    border: 1px solid rgba(76, 123, 208, 0.2);
+  }
+
   .sponsor-img-wrapper.gold {
     height: 160px;
     border-radius: 8px;
@@ -267,6 +320,7 @@ const categories = {
   /* Responsive adjustments */
   @media (max-width: 768px) {
     .sponsor-img-wrapper.venue,
+    .sponsor-img-wrapper.root,
     .sponsor-img-wrapper.gold,
     .sponsor-img-wrapper.bronze,
     .sponsor-img-wrapper.media {
