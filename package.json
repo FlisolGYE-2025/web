@@ -2,6 +2,7 @@
   "name": "flisol-webgye",
   "type": "module",
   "version": "1.0.0",
+  "packageManager": "pnpm@10.33.0",
   "description": "Festival Latinoamericano de Instalación de Software Libre - Guayaquil",
   "scripts": {
     "dev": "astro dev",
