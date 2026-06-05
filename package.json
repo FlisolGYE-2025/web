@@ -19,7 +19,7 @@
   "author": "FLISol Guayaquil",
   "license": "ISC",
   "dependencies": {
-    "astro": "^5.7.10",
+    "astro": "^6.4.4",
     "astro-compress": "^2.0.15"
   }
 }
