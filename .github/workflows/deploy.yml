@@ -26,7 +26,7 @@ jobs:
         uses: withastro/action@v3
         with:
           node-version: 22 # Astro 6 requires Node.js >=22.12.0
-          package-manager: pnpm
+          # pnpm is auto-detected from pnpm-lock.yaml; version comes from package.json "packageManager"
 
   deploy:
     needs: build
