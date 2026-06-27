@@ -1,0 +1,199 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { getCertSalt } from "../lib/certificate.ts";
+
+getCertSalt();
+---
+
+<Layout
+  title="Descarga tu certificado - FLISol Guayaquil 2025"
+  description="Descarga tu certificado de participación en FLISol Guayaquil 2025 usando el correo con el que te registraste."
+>
+  <Header slot="header" />
+
+  <section
+    class="bg-primary text-white py-100 pt-md-150 position-relative overflow-hidden"
+    aria-labelledby="certificate-heading"
+  >
+    <div class="position-absolute top-0 start-0 w-100 h-100 z-0">
+      <div class="position-absolute top-50 start-0 translate-middle-y">
+        <img
+          src="/assets/images/nube-2.svg"
+          alt=""
+          class="opacity-10"
+          width="250"
+          height="150"
+          aria-hidden="true"
+        />
+      </div>
+      <div class="position-absolute top-25 end-0 translate-middle-y">
+        <img
+          src="/assets/images/nube-1.svg"
+          alt=""
+          class="opacity-10"
+          width="250"
+          height="150"
+          aria-hidden="true"
+        />
+      </div>
+    </div>
+
+    <div class="container position-relative z-1">
+      <div class="row justify-content-center text-center">
+        <div class="col-lg-8">
+          <h1
+            id="certificate-heading"
+            class="display-3 fw-bold mb-4 px-3 me-md-2 text-white"
+            data-aos="fade-up"
+          >
+            Descarga tu certificado
+          </h1>
+          <p class="lead fs-3 mb-0 text-white" data-aos="fade-up" data-aos-delay="100">
+            Ingresa el correo electrónico con el que te registraste en FLISol Guayaquil 2025.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-100 bg-light" aria-labelledby="certificate-form-heading">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-6">
+          <div class="card border-0 shadow-sm rounded-4 p-4 p-md-5" data-aos="fade-up">
+            <h2 id="certificate-form-heading" class="h3 text-primary mb-3">
+              Buscar certificado
+            </h2>
+            <p class="text-muted mb-4">
+              Usa el mismo correo de tu inscripción. Si participaste como asistente o voluntario,
+              tu certificado se descargará automáticamente.
+            </p>
+
+            <form id="certificate-form" novalidate>
+              <div class="mb-4">
+                <label for="certificate-email" class="form-label fw-semibold">
+                  Correo electrónico
+                </label>
+                <input
+                  type="email"
+                  id="certificate-email"
+                  name="email"
+                  class="form-control form-control-lg"
+                  placeholder="tu@correo.com"
+                  autocomplete="email"
+                  required
+                />
+              </div>
+
+              <button
+                type="submit"
+                class="btn btn-primary btn-lg w-100 d-inline-flex align-items-center justify-content-center gap-2"
+              >
+                <i class="bi bi-download" aria-hidden="true"></i>
+                Descargar certificado
+              </button>
+
+              <div
+                class="alert mt-4 mb-0 d-none"
+                data-cert-feedback
+                role="alert"
+                aria-live="polite"
+              ></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>
+
+<style>
+  .py-100 {
+    padding-top: 120px;
+    padding-bottom: 100px;
+  }
+
+  .pt-md-150 {
+    padding-top: 180px;
+  }
+
+  @media (max-width: 768px) {
+    .py-100 {
+      padding-top: 100px;
+      padding-bottom: 70px;
+    }
+  }
+
+  .opacity-10 {
+    opacity: 0.1;
+  }
+</style>
+
+<script>
+  import { getCertificateUrl, hashCertificateEmail } from "../lib/certificate.ts";
+
+  function setFormState(form, { loading, message, isError }) {
+    const submitButton = form.querySelector('[type="submit"]');
+    const feedback = form.querySelector("[data-cert-feedback]");
+
+    if (submitButton instanceof HTMLButtonElement) {
+      submitButton.disabled = loading;
+      submitButton.setAttribute("aria-busy", loading ? "true" : "false");
+    }
+
+    if (feedback instanceof HTMLElement) {
+      feedback.textContent = message || "";
+      feedback.classList.toggle("d-none", !message);
+      feedback.classList.toggle("alert-danger", Boolean(isError));
+      feedback.classList.toggle("alert-success", Boolean(message && !isError));
+    }
+  }
+
+  const form = document.getElementById("certificate-form");
+
+  form?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const emailInput = form.querySelector('input[type="email"]');
+    const email = emailInput instanceof HTMLInputElement ? emailInput.value : "";
+
+    if (!email.trim()) {
+      setFormState(form, {
+        loading: false,
+        message: "Ingresa el correo con el que te registraste en el evento.",
+        isError: true,
+      });
+      return;
+    }
+
+    setFormState(form, { loading: true, message: "", isError: false });
+
+    try {
+      const hash = await hashCertificateEmail(email);
+      const certificateUrl = getCertificateUrl(hash);
+      const response = await fetch(certificateUrl, { method: "HEAD" });
+
+      if (!response.ok) {
+        setFormState(form, {
+          loading: false,
+          message:
+            "No encontramos un certificado para ese correo. Verifica que sea el mismo email de tu registro.",
+          isError: true,
+        });
+        return;
+      }
+
+      window.location.href = certificateUrl;
+    } catch {
+      setFormState(form, {
+        loading: false,
+        message: "No pudimos procesar tu solicitud. Intenta de nuevo.",
+        isError: true,
+      });
+    }
+  });
+</script>

@@ -37,8 +37,8 @@ Este repositorio contiene el sitio web oficial del Festival Latinoamericano de I
 
 ### Requisitos previos
 
-- Node.js (versión 18.14.1 o superior)
-- npm (viene con Node.js)
+- Node.js (versión 22.12.0 o superior)
+- [pnpm](https://pnpm.io/) (versión 10.33.0 o superior)
 
 ### Instalación
 
@@ -50,21 +50,21 @@ cd flisol-webgye
 
 2. Instala las dependencias:
 ```bash
-npm install
+pnpm install
 ```
 
 3. Inicia el servidor de desarrollo:
 ```bash
-npm run dev
+pnpm dev
 ```
 
 4. Abre tu navegador en `http://localhost:4321` para ver el sitio.
 
 ## 🔨 Comandos disponibles
 
-- `npm run dev` - Inicia el servidor de desarrollo
-- `npm run build` - Construye el sitio para producción
-- `npm run preview` - Vista previa del sitio construido antes de desplegar
+- `pnpm dev` - Inicia el servidor de desarrollo
+- `pnpm build` - Construye el sitio para producción
+- `pnpm preview` - Vista previa del sitio construido antes de desplegar
 
 ## 📝 Tecnologías utilizadas
 

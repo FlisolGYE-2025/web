@@ -17,6 +17,8 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      PUBLIC_CERT_SALT: ${{ secrets.PUBLIC_CERT_SALT }}
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
@@ -24,6 +26,7 @@ jobs:
         uses: withastro/action@v3
         with:
           node-version: 22 # Astro 6 requires Node.js >=22.12.0
+          package-manager: pnpm
 
   deploy:
     needs: build
