@@ -17,6 +17,7 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: github-pages
     env:
       PUBLIC_CERT_SALT: ${{ secrets.PUBLIC_CERT_SALT || vars.PUBLIC_CERT_SALT }}
     steps:
@@ -25,7 +26,7 @@ jobs:
       - name: Verify certificate salt is configured
         run: |
           if [ -z "$PUBLIC_CERT_SALT" ]; then
-            echo "::error::PUBLIC_CERT_SALT is empty. Add it under Settings → Secrets and variables → Actions as either a Repository secret or a Repository variable named exactly PUBLIC_CERT_SALT. Environment secrets (e.g. github-pages) are not available to the build job."
+            echo "::error::PUBLIC_CERT_SALT is empty. Add it in GitHub under Settings → Secrets and variables → Actions, named exactly PUBLIC_CERT_SALT, as a Repository secret/variable or as a secret/variable on the github-pages environment."
             exit 1
           fi
       - name: Install, build, and upload your site
